@@ -1,0 +1,233 @@
+# Codecov Configuration for Astral Draft v4
+# Enhanced test coverage reporting and analysis
+
+codecov:
+  # Require CI to pass before accepting coverage
+  require_ci_to_pass: yes
+  
+  # Notify settings
+  notify:
+    require_ci_to_pass: yes
+    after_n_builds: 3
+    wait_for_ci: yes
+
+# Coverage thresholds and targets
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  
+  status:
+    # Project-wide coverage
+    project:
+      default:
+        target: auto
+        threshold: 1%
+        base: auto
+        flags:
+          - unit-tests
+        if_no_uploads: error
+        if_not_found: success
+        if_ci_failed: error
+        only_pulls: false
+        
+      # Critical modules require higher coverage
+      critical:
+        target: 95%
+        threshold: 2%
+        flags:
+          - unit-tests
+        paths:
+          - "src/server/auth.ts"
+          - "src/lib/auth/"
+          - "src/lib/security/"
+          - "src/server/middleware/"
+        if_no_uploads: error
+        
+      # Core business logic
+      core:
+        target: 90%
+        threshold: 2%
+        flags:
+          - unit-tests
+        paths:
+          - "src/server/api/routers/"
+          - "src/lib/oracle/"
+          - "src/services/"
+        if_no_uploads: error
+        
+      # Frontend components
+      frontend:
+        target: 80%
+        threshold: 3%
+        flags:
+          - unit-tests
+        paths:
+          - "src/components/"
+          - "src/hooks/"
+          - "src/lib/utils.ts"
+        if_no_uploads: error
+
+    # Patch coverage (for new code in PRs)
+    patch:
+      default:
+        target: 85%
+        threshold: 10%
+        base: auto
+        flags:
+          - unit-tests
+        if_no_uploads: error
+        if_not_found: success
+        if_ci_failed: error
+        only_pulls: true
+
+    # Changes coverage (diff from base)
+    changes:
+      default:
+        target: auto
+        threshold: 1%
+        base: auto
+        flags:
+          - unit-tests
+        if_no_uploads: error
+
+# Flag configuration for different test types
+flags:
+  unit-tests:
+    paths:
+      - "src/"
+    carryforward: false
+    
+  integration-tests:
+    paths:
+      - "src/server/"
+      - "src/lib/"
+    carryforward: false
+    
+  e2e-tests:
+    paths:
+      - "src/app/"
+      - "src/components/"
+    carryforward: false
+
+# Comment configuration for PRs
+comment:
+  layout: "reach, diff, flags, tree"
+  behavior: default
+  require_changes: false
+  require_base: no
+  require_head: yes
+  show_carryforward_flags: false
+  
+  # Customize the comment format
+  after_n_builds: 1
+  
+  # Branch patterns
+  branches:
+    - "main"
+    - "develop"
+
+# GitHub Checks integration
+github_checks:
+  annotations: true
+
+# Ignore paths that shouldn't affect coverage
+ignore:
+  - "**/*.d.ts"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "**/test/**"
+  - "**/tests/**"
+  - "**/e2e/**"
+  - "**/coverage/**"
+  - "**/node_modules/**"
+  - "**/.next/**"
+  - "**/.git/**"
+  - "**/prisma/migrations/**"
+  - "**/prisma/seed.ts"
+  - "src/env.ts"
+  - "src/middleware.ts"
+  - "jest.config.js"
+  - "jest.setup.js"
+  - "next.config.js"
+  - "tailwind.config.ts"
+  - "postcss.config.js"
+  - "playwright.config.ts"
+  - "vitest.config.ts"
+  - "k6/**"
+  - "scripts/**"
+  - "docs/**"
+
+# Parse configuration
+parsers:
+  gcov:
+    branch_detection:
+      conditional: yes
+      loop: yes
+      method: no
+      macro: no
+
+# Component management
+component_management:
+  default_rules:
+    flag_regexes:
+      - name: unit-tests
+        regex: unit.*
+        statuses:
+          - type: project
+            target: 80%
+      - name: integration-tests
+        regex: integration.*
+        statuses:
+          - type: project
+            target: 75%
+  individual_components:
+    - component_id: authentication
+      name: Authentication System
+      paths:
+        - "src/server/auth.ts"
+        - "src/lib/auth/"
+        - "src/components/auth/"
+      flag_regexes:
+        - unit.*
+      statuses:
+        - type: project
+          target: 95%
+          
+    - component_id: api
+      name: API Layer
+      paths:
+        - "src/server/api/"
+        - "src/lib/trpc/"
+      flag_regexes:
+        - unit.*
+        - integration.*
+      statuses:
+        - type: project
+          target: 90%
+          
+    - component_id: ui
+      name: UI Components
+      paths:
+        - "src/components/ui/"
+        - "src/components/layout/"
+      flag_regexes:
+        - unit.*
+      statuses:
+        - type: project
+          target: 80%
+          
+    - component_id: oracle
+      name: Oracle AI System
+      paths:
+        - "src/lib/oracle/"
+        - "src/services/oracleAI.ts"
+        - "src/components/oracle/"
+      flag_regexes:
+        - unit.*
+        - integration.*
+      statuses:
+        - type: project
+          target: 90%

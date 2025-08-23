@@ -1,0 +1,480 @@
+name: Security Scanning
+
+on:
+  push:
+    branches: [ main, master, develop ]
+    paths:
+      - 'v4/**'
+      - '.github/workflows/security.yml'
+  pull_request:
+    branches: [ main, master, develop ]
+    paths:
+      - 'v4/**'
+      - '.github/workflows/security.yml'
+  schedule:
+    # Run security scans daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+# Only allow one security scan at a time
+concurrency:
+  group: security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '18.17.0'
+  CACHE_DEPENDENCY_PATH: 'v4/package-lock.json'
+
+defaults:
+  run:
+    working-directory: ./v4
+
+jobs:
+  # Job 1: Dependency Vulnerability Scanning
+  dependency-scanning:
+    name: Dependency Vulnerability Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run npm audit
+        run: |
+          npm audit --audit-level=moderate --json > npm-audit-report.json
+        continue-on-error: true
+
+      - name: Upload npm audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-report-${{ github.sha }}
+          path: v4/npm-audit-report.json
+          retention-days: 30
+
+      - name: Run Snyk security scan
+        uses: snyk/actions/node@master
+        continue-on-error: true
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=medium --json > snyk-report.json
+
+      - name: Upload Snyk report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: snyk-security-report-${{ github.sha }}
+          path: v4/snyk-report.json
+          retention-days: 30
+
+      - name: Run OSV Scanner
+        uses: google/osv-scanner-action@v1
+        with:
+          scan-args: |-
+            --output=results.json
+            --format=json
+            ./v4
+        continue-on-error: true
+
+      - name: Upload OSV Scanner results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: osv-scanner-results-${{ github.sha }}
+          path: results.json
+          retention-days: 30
+
+  # Job 2: Static Application Security Testing (SAST)
+  sast-analysis:
+    name: Static Application Security Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript,typescript
+          config: |
+            name: "CodeQL Security Analysis"
+            disable-default-queries: false
+            queries:
+              - uses: security-extended
+              - uses: security-and-quality
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Generate Prisma client
+        run: npm run db:generate
+
+      - name: Build application
+        run: npm run build
+        env:
+          SKIP_ENV_VALIDATION: true
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:javascript"
+
+      - name: Run ESLint Security Plugin
+        run: |
+          npx eslint . \
+            --ext .js,.jsx,.ts,.tsx \
+            --config .eslintrc.security.json \
+            --format json \
+            --output-file eslint-security-report.json
+        continue-on-error: true
+
+      - name: Upload ESLint Security report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eslint-security-report-${{ github.sha }}
+          path: v4/eslint-security-report.json
+          retention-days: 30
+
+      - name: Run Semgrep SAST
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/security-audit
+            p/secrets
+            p/javascript
+            p/typescript
+            p/react
+            p/nextjs
+          generateSarif: "1"
+
+      - name: Upload Semgrep SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: semgrep.sarif
+
+  # Job 3: Secret Scanning
+  secret-scanning:
+    name: Secret Detection
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run TruffleHog OSS
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./v4/
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug --only-verified
+
+      - name: Run GitLeaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+      - name: Run detect-secrets
+        run: |
+          pip install detect-secrets
+          detect-secrets scan --all-files --baseline .secrets.baseline ./v4/
+          detect-secrets audit .secrets.baseline
+        continue-on-error: true
+
+      - name: Upload secrets baseline
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: secrets-baseline-${{ github.sha }}
+          path: .secrets.baseline
+          retention-days: 30
+
+  # Job 4: Container Security Scanning
+  container-security:
+    name: Container Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./v4
+          load: true
+          tags: astral-draft-v4:security-scan
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'astral-draft-v4:security-scan'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+      - name: Run Grype vulnerability scanner
+        uses: anchore/scan-action@v3
+        with:
+          image: "astral-draft-v4:security-scan"
+          fail-build: false
+          severity-cutoff: high
+
+      - name: Upload Grype SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
+
+      - name: Run Docker Scout
+        uses: docker/scout-action@v1
+        if: ${{ github.event_name != 'pull_request_target' }}
+        with:
+          command: cves
+          image: astral-draft-v4:security-scan
+          sarif-file: scout-results.sarif
+          summary: true
+
+      - name: Upload Docker Scout SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: scout-results.sarif
+
+  # Job 5: Infrastructure as Code Security
+  iac-security:
+    name: Infrastructure Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Checkov IaC scanner
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: ./v4
+          framework: dockerfile,github_actions
+          output_format: sarif
+          output_file_path: checkov-results.sarif
+
+      - name: Upload Checkov SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: checkov-results.sarif
+
+      - name: Run Terrascan
+        uses: tenable/terrascan-action@main
+        with:
+          iac_type: docker
+          iac_version: v1
+          policy_type: all
+          only_warn: true
+          sarif_upload: true
+          non_recursive: true
+          iac_dir: ./v4
+
+  # Job 6: License Compliance
+  license-compliance:
+    name: License Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: ${{ env.CACHE_DEPENDENCY_PATH }}
+
+      - name: Install dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run License Checker
+        run: |
+          npx license-checker --json --out license-report.json
+          npx license-checker --summary
+        continue-on-error: true
+
+      - name: Upload license report
+        uses: actions/upload-artifact@v4
+        with:
+          name: license-report-${{ github.sha }}
+          path: v4/license-report.json
+          retention-days: 30
+
+      - name: Check for forbidden licenses
+        run: |
+          npx license-checker \
+            --onlyAllow 'MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;0BSD;Unlicense' \
+            --excludePrivatePackages
+
+  # Job 7: Web Application Security Testing (if deployed)
+  web-security-testing:
+    name: Web Application Security Test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: OWASP ZAP Full Scan
+        uses: zaproxy/action-full-scan@v0.8.0
+        with:
+          target: 'https://staging.astraldraft.com'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a -x zap-report.xml -j'
+
+      - name: Upload ZAP scan results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: zap-security-scan-${{ github.sha }}
+          path: |
+            report_html.html
+            zap-report.xml
+          retention-days: 30
+
+      - name: Nuclei Vulnerability Scanner
+        uses: projectdiscovery/nuclei-action@main
+        with:
+          target: https://staging.astraldraft.com
+          github-report: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  # Job 8: Security Report Generation
+  security-report:
+    name: Generate Security Report
+    runs-on: ubuntu-latest
+    needs: [dependency-scanning, sast-analysis, secret-scanning, container-security, iac-security, license-compliance]
+    if: always()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: security-artifacts
+
+      - name: Generate comprehensive security report
+        run: |
+          echo "# Security Scan Report" > security-report.md
+          echo "Generated on: $(date)" >> security-report.md
+          echo "Commit: ${{ github.sha }}" >> security-report.md
+          echo "" >> security-report.md
+          
+          echo "## Scan Results Summary" >> security-report.md
+          echo "- **Dependency Scanning**: ${{ needs.dependency-scanning.result }}" >> security-report.md
+          echo "- **SAST Analysis**: ${{ needs.sast-analysis.result }}" >> security-report.md
+          echo "- **Secret Scanning**: ${{ needs.secret-scanning.result }}" >> security-report.md
+          echo "- **Container Security**: ${{ needs.container-security.result }}" >> security-report.md
+          echo "- **IaC Security**: ${{ needs.iac-security.result }}" >> security-report.md
+          echo "- **License Compliance**: ${{ needs.license-compliance.result }}" >> security-report.md
+          echo "" >> security-report.md
+          
+          echo "## Next Steps" >> security-report.md
+          echo "1. Review all SARIF files uploaded to GitHub Security tab" >> security-report.md
+          echo "2. Address any high/critical vulnerabilities found" >> security-report.md
+          echo "3. Update dependencies with known vulnerabilities" >> security-report.md
+          echo "4. Review and rotate any exposed secrets" >> security-report.md
+
+      - name: Upload security report
+        uses: actions/upload-artifact@v4
+        with:
+          name: comprehensive-security-report-${{ github.sha }}
+          path: security-report.md
+          retention-days: 90
+
+      - name: Create Security Issue (if vulnerabilities found)
+        if: needs.dependency-scanning.result == 'failure' || needs.sast-analysis.result == 'failure' || needs.secret-scanning.result == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            
+            github.rest.issues.create({
+              owner,
+              repo,
+              title: `🚨 Security Vulnerabilities Detected - ${context.sha.substring(0, 7)}`,
+              body: `## Security Scan Results
+              
+              High priority security issues have been detected in commit ${context.sha}.
+              
+              **Failed Scans:**
+              ${needs.dependency-scanning.result === 'failure' ? '- ❌ Dependency Scanning\n' : ''}
+              ${needs.sast-analysis.result === 'failure' ? '- ❌ SAST Analysis\n' : ''}
+              ${needs.secret-scanning.result === 'failure' ? '- ❌ Secret Scanning\n' : ''}
+              
+              **Action Required:**
+              1. Review the security scan artifacts
+              2. Address high/critical vulnerabilities
+              3. Update dependencies and fix code issues
+              4. Re-run security scans
+              
+              **Artifacts:** [Security Scan Report](https://github.com/${owner}/${repo}/actions/runs/${context.runId})`,
+              labels: ['security', 'high-priority', 'vulnerability']
+            });
+
+      - name: Notify security team
+        if: needs.dependency-scanning.result == 'failure' || needs.sast-analysis.result == 'failure' || needs.secret-scanning.result == 'failure'
+        uses: 8398a7/action-slack@v3
+        with:
+          status: failure
+          channel: '#security-alerts'
+          text: |
+            🚨 **Critical Security Issues Detected in Astral Draft v4**
+            
+            **Repository**: ${{ github.repository }}
+            **Commit**: ${{ github.sha }}
+            **Branch**: ${{ github.ref_name }}
+            **Action**: [View Security Report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            
+            **Failed Scans:**
+            ${{ needs.dependency-scanning.result == 'failure' && '- Dependency Scanning' || '' }}
+            ${{ needs.sast-analysis.result == 'failure' && '- SAST Analysis' || '' }}
+            ${{ needs.secret-scanning.result == 'failure' && '- Secret Scanning' || '' }}
+            
+            Immediate attention required!
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_SECURITY_WEBHOOK_URL }}

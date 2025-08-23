@@ -1,0 +1,778 @@
+/* Cyberpunk Register Page Styles - Inherits from login.css with custom enhancements */
+
+/* Import base cyberpunk styles */
+@import '../login/login.css';
+
+/* Register Content Container */
+.register-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 550px;
+  padding: 20px;
+}
+
+/* Register Card - Slightly larger than login */
+.register-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.register-card .card-inner {
+  padding: 35px 40px;
+}
+
+/* Enhanced Glitch Text for Register */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text-copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-text.glitch-active .glitch-text-copy:nth-child(1) {
+  animation: register-glitch-1 0.3s linear;
+  opacity: 0.8;
+  color: #00ffff;
+  -webkit-text-fill-color: #00ffff;
+}
+
+.glitch-text.glitch-active .glitch-text-copy:nth-child(3) {
+  animation: register-glitch-2 0.3s linear;
+  opacity: 0.8;
+  color: #ff00ff;
+  -webkit-text-fill-color: #ff00ff;
+}
+
+@keyframes register-glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+}
+
+@keyframes register-glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(3px, -3px); }
+  40% { transform: translate(3px, 3px); }
+  60% { transform: translate(-3px, -3px); }
+  80% { transform: translate(-3px, 3px); }
+}
+
+/* Input Error Styling */
+.input-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 4px 8px;
+  background: rgba(255, 0, 100, 0.1);
+  border-left: 2px solid #ff0064;
+  border-radius: 4px;
+  animation: error-slide-in 0.3s ease-out;
+}
+
+@keyframes error-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.error-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ff0064;
+  color: #000;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  animation: error-pulse 1s ease-in-out infinite;
+}
+
+@keyframes error-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.error-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  color: #ff0064;
+  letter-spacing: 0.5px;
+}
+
+/* Team Name Input with Badge */
+.team-name-wrapper {
+  position: relative;
+}
+
+.team-badge {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  z-index: 2;
+  color: #00ffff;
+  animation: badge-rotate 10s linear infinite;
+}
+
+@keyframes badge-rotate {
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+.badge-icon {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 5px currentColor);
+}
+
+.cyber-input.with-icon {
+  padding-left: 45px;
+}
+
+/* Password Strength Indicator */
+.password-strength-container {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(0, 20, 40, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  border-radius: 8px;
+  animation: strength-fade-in 0.3s ease-out;
+}
+
+@keyframes strength-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.strength-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 6px;
+  height: 6px;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-bar.active {
+  animation: bar-glow 0.5s ease-out;
+}
+
+@keyframes bar-glow {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.strength-bar.active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: bar-shimmer 1s ease-out;
+}
+
+@keyframes bar-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.strength-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.strength-label {
+  font-weight: 600;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.strength-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.shield-icon {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px currentColor);
+  animation: shield-pulse 1s ease-in-out infinite;
+}
+
+@keyframes shield-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* Terms Section */
+.terms-section {
+  margin-bottom: 24px;
+}
+
+.cyber-checkbox {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+  padding-left: 32px;
+  min-height: 24px;
+}
+
+.cyber-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-custom {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background: rgba(0, 20, 40, 0.6);
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 6px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cyber-checkbox:hover .checkbox-custom {
+  border-color: #00ffff;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.4),
+    inset 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.cyber-checkbox input[type="checkbox"]:checked ~ .checkbox-custom {
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  border-color: #00ffff;
+  animation: checkbox-pulse 0.4s ease-out;
+}
+
+@keyframes checkbox-pulse {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.checkbox-check {
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s;
+}
+
+.cyber-checkbox input[type="checkbox"]:checked ~ .checkbox-custom .checkbox-check {
+  opacity: 1;
+  transform: scale(1);
+  stroke: #000;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 0;
+  animation: check-draw 0.4s ease-out;
+}
+
+@keyframes check-draw {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.checkbox-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+
+.cyber-link-inline {
+  color: #00ffff;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s;
+  border-bottom: 1px solid transparent;
+}
+
+.cyber-link-inline:hover {
+  color: #ff00ff;
+  text-shadow: 0 0 10px currentColor;
+  border-bottom-color: currentColor;
+}
+
+/* Enhanced Primary Button */
+.cyber-button-primary {
+  position: relative;
+  width: 100%;
+  padding: 18px 24px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #00ffff 0%, #ff00ff 50%, #00ff88 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-family: 'Orbitron', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 
+    0 4px 20px rgba(0, 255, 255, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.cyber-button-primary:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 30px rgba(0, 255, 255, 0.6),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.cyber-button-primary:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.cyber-button-primary.loading {
+  pointer-events: none;
+  animation: loading-pulse 1.5s ease-in-out infinite, gradient-shift 3s ease infinite;
+}
+
+/* Loading Spinner */
+.neon-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.spinner-blade {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #000;
+  animation: blade-spin 0.8s linear infinite;
+}
+
+.spinner-blade:nth-child(1) {
+  animation-delay: 0s;
+  border-top-color: rgba(0, 0, 0, 1);
+}
+
+.spinner-blade:nth-child(2) {
+  animation-delay: 0.1s;
+  border-top-color: rgba(0, 0, 0, 0.6);
+  transform: scale(0.9);
+}
+
+.spinner-blade:nth-child(3) {
+  animation-delay: 0.2s;
+  border-top-color: rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+}
+
+@keyframes blade-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  margin-left: 12px;
+  animation: text-blink 1s ease-in-out infinite;
+}
+
+@keyframes text-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Sign In Section */
+.signin-section {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signin-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* Dev Mode Panel for Register */
+.dev-quick-fill {
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #00ff88, #00ffff);
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.dev-quick-fill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+/* Enhanced Neon Lines for Register */
+.neon-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.neon-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #00ffff, transparent);
+  filter: blur(2px);
+  opacity: 0.6;
+}
+
+.neon-line-1 {
+  width: 250px;
+  height: 2px;
+  top: 25%;
+  animation: neon-sweep-1 10s linear infinite;
+}
+
+.neon-line-2 {
+  width: 200px;
+  height: 2px;
+  top: 55%;
+  background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+  animation: neon-sweep-2 8s linear infinite;
+}
+
+.neon-line-3 {
+  width: 220px;
+  height: 2px;
+  top: 85%;
+  background: linear-gradient(90deg, transparent, #00ff88, transparent);
+  animation: neon-sweep-3 12s linear infinite;
+}
+
+@keyframes neon-sweep-1 {
+  0% { left: -250px; }
+  100% { left: 100%; }
+}
+
+@keyframes neon-sweep-2 {
+  0% { right: -200px; }
+  100% { right: 100%; }
+}
+
+@keyframes neon-sweep-3 {
+  0% { left: -220px; }
+  100% { left: 100%; }
+}
+
+/* Arrow Icon Animation */
+.arrow-icon {
+  width: 20px;
+  height: 20px;
+  animation: arrow-slide 1.5s ease-in-out infinite;
+}
+
+@keyframes arrow-slide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* Enhanced Holographic Effect */
+.holographic {
+  position: relative;
+}
+
+.holographic::before {
+  content: '';
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    rgba(0, 255, 255, 0.1) 35%,
+    rgba(255, 0, 255, 0.1) 40%,
+    rgba(0, 255, 136, 0.1) 45%,
+    transparent 50%);
+  background-size: 200% 200%;
+  animation: holographic-wave 4s linear infinite;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+@keyframes holographic-wave {
+  0% { background-position: -100% -100%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Responsive Design for Register */
+@media (max-width: 768px) {
+  .register-content {
+    padding: 10px;
+  }
+
+  .register-card .card-inner {
+    padding: 25px 20px;
+  }
+
+  .cyber-title {
+    font-size: 32px;
+  }
+
+  .strength-text {
+    font-size: 10px;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+  }
+
+  .social-login-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Additional Animations */
+@keyframes cyber-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Input Focus Enhancement */
+.cyber-input-wrapper:focus-within {
+  animation: input-focus-pulse 2s ease-in-out infinite;
+}
+
+@keyframes input-focus-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  }
+}
+
+/* Button Particle Effects */
+.button-particles .particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cyber-button-primary:hover .button-particles .particle:nth-child(1) {
+  animation: particle-float-1 2s ease-out infinite;
+}
+
+.cyber-button-primary:hover .button-particles .particle:nth-child(2) {
+  animation: particle-float-2 2s ease-out infinite 0.2s;
+}
+
+.cyber-button-primary:hover .button-particles .particle:nth-child(3) {
+  animation: particle-float-3 2s ease-out infinite 0.4s;
+}
+
+.cyber-button-primary:hover .button-particles .particle:nth-child(4) {
+  animation: particle-float-4 2s ease-out infinite 0.6s;
+}
+
+.cyber-button-primary:hover .button-particles .particle:nth-child(5) {
+  animation: particle-float-5 2s ease-out infinite 0.8s;
+}
+
+.cyber-button-primary:hover .button-particles .particle:nth-child(6) {
+  animation: particle-float-6 2s ease-out infinite 1s;
+}
+
+@keyframes particle-float-1 {
+  0% {
+    opacity: 0;
+    transform: translate(20%, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-30px, -30px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50px, -50px) scale(0);
+  }
+}
+
+@keyframes particle-float-2 {
+  0% {
+    opacity: 0;
+    transform: translate(40%, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(30px, -30px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(50px, -50px) scale(0);
+  }
+}
+
+@keyframes particle-float-3 {
+  0% {
+    opacity: 0;
+    transform: translate(60%, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(0, -40px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, -60px) scale(0);
+  }
+}
+
+@keyframes particle-float-4 {
+  0% {
+    opacity: 0;
+    transform: translate(80%, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-30px, -20px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50px, -40px) scale(0);
+  }
+}
+
+@keyframes particle-float-5 {
+  0% {
+    opacity: 0;
+    transform: translate(10%, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(40px, -35px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(60px, -55px) scale(0);
+  }
+}
+
+@keyframes particle-float-6 {
+  0% {
+    opacity: 0;
+    transform: translate(90%, 0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-20px, -45px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-40px, -65px) scale(0);
+  }
+}

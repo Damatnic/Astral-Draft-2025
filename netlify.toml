@@ -1,0 +1,78 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
+
+# Functions Configuration
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["@neondatabase/serverless", "pg", "pg-pool", "bcryptjs", "jsonwebtoken"]
+  included_files = ["backend/**", "netlify/functions/**"]
+
+# API Redirects - Route all API calls to Netlify Functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# SPA fallback - everything else goes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers for all JavaScript files
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    "Content-Type" = "application/javascript; charset=utf-8"
+    "Cache-Control" = "public, max-age=31536000, immutable"
+
+# Headers for assets directory - immutable caching for built assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    "Content-Type" = "application/javascript; charset=utf-8"
+    "Cache-Control" = "public, max-age=31536000, immutable"
+    "X-Content-Type-Options" = "nosniff"
+
+# Headers for CSS files
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    "Content-Type" = "text/css; charset=utf-8"
+    "Cache-Control" = "public, max-age=31536000, immutable"
+
+# Headers for service worker
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    "Content-Type" = "application/javascript; charset=utf-8"
+    "Cache-Control" = "public, max-age=0, must-revalidate"
+    "Service-Worker-Allowed" = "/"
+
+# Security headers for all routes
+[[headers]]
+  for = "/*"
+  [headers.values]
+    "Content-Security-Policy" = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://astraldraft.netlify.app wss://astraldraft.netlify.app https://fonts.googleapis.com https://fonts.gstatic.com https://api.gemini.com https://generativelanguage.googleapis.com https://*.espn.com https://api.the-odds-api.com https://api.sportsdata.io; img-src 'self' data: https:; manifest-src 'self'"
+    "X-Frame-Options" = "DENY"
+    "X-Content-Type-Options" = "nosniff"
+    "X-XSS-Protection" = "1; mode=block"
+    "Referrer-Policy" = "strict-origin-when-cross-origin"
+    "Permissions-Policy" = "camera=(), microphone=(), geolocation=()"
+
+# Forms handling
+[forms]
+  enabled = true
+
+# Dev server settings
+[dev]
+  command = "npm run dev"
+  port = 3000
+  publish = "dist"

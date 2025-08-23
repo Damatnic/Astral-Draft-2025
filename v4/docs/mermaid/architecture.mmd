@@ -1,0 +1,134 @@
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#1e40af', 'primaryTextColor':'#fff', 'primaryBorderColor':'#60a5fa', 'lineColor':'#60a5fa', 'secondaryColor':'#1e293b', 'tertiaryColor':'#334155'}}}%%
+
+graph TB
+    subgraph "Client Layer"
+        Web[Web Browser]
+        Mobile[Mobile PWA]
+        Desktop[Desktop App]
+    end
+
+    subgraph "CDN & Edge"
+        CF[Cloudflare CDN]
+        Edge[Edge Functions]
+    end
+
+    subgraph "Application Layer"
+        Next[Next.js App Router]
+        API[tRPC API]
+        WS[WebSocket Server]
+        
+        subgraph "Middleware"
+            Auth[Auth Middleware]
+            Rate[Rate Limiter]
+            Cache[Cache Layer]
+        end
+    end
+
+    subgraph "Service Layer"
+        AuthService[Auth Service]
+        LeagueService[League Service]
+        DraftService[Draft Service]
+        ScoringService[Scoring Service]
+        TradeService[Trade Service]
+        NotificationService[Notification Service]
+    end
+
+    subgraph "Data Layer"
+        subgraph "Primary Storage"
+            PG[(PostgreSQL)]
+            Prisma[Prisma ORM]
+        end
+        
+        subgraph "Caching"
+            Redis[(Redis)]
+            Upstash[(Upstash)]
+        end
+        
+        subgraph "Queue"
+            Bull[BullMQ]
+        end
+    end
+
+    subgraph "External Services"
+        Sports[Sports Data API]
+        Email[Email Service]
+        Push[Push Notifications]
+        OAuth[OAuth Providers]
+    end
+
+    subgraph "Background Jobs"
+        Waiver[Waiver Processing]
+        Stats[Stats Updates]
+        Score[Score Calculation]
+        Expire[Trade Expiration]
+    end
+
+    %% Client connections
+    Web --> CF
+    Mobile --> CF
+    Desktop --> CF
+    
+    %% CDN to App
+    CF --> Next
+    CF --> Edge
+    Edge --> API
+    
+    %% App layer connections
+    Next --> API
+    Next --> WS
+    API --> Auth
+    API --> Rate
+    API --> Cache
+    
+    %% Middleware to Services
+    Auth --> AuthService
+    Rate --> Redis
+    Cache --> Redis
+    
+    %% Service to Data
+    AuthService --> Prisma
+    LeagueService --> Prisma
+    DraftService --> Prisma
+    DraftService --> Redis
+    ScoringService --> Prisma
+    ScoringService --> Redis
+    TradeService --> Prisma
+    NotificationService --> Redis
+    NotificationService --> Bull
+    
+    %% Data layer
+    Prisma --> PG
+    Bull --> Redis
+    
+    %% External integrations
+    AuthService --> OAuth
+    ScoringService --> Sports
+    NotificationService --> Email
+    NotificationService --> Push
+    
+    %% Background jobs
+    Bull --> Waiver
+    Bull --> Stats
+    Bull --> Score
+    Bull --> Expire
+    
+    Waiver --> Prisma
+    Stats --> Sports
+    Stats --> Prisma
+    Score --> Prisma
+    Expire --> Prisma
+    
+    %% WebSocket connections
+    WS --> Redis
+    WS --> DraftService
+    WS --> NotificationService
+    
+    style Web fill:#3b82f6
+    style Mobile fill:#3b82f6
+    style Desktop fill:#3b82f6
+    style Next fill:#10b981
+    style API fill:#10b981
+    style WS fill:#10b981
+    style PG fill:#f59e0b
+    style Redis fill:#ef4444
+    style Bull fill:#8b5cf6

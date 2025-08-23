@@ -1,0 +1,195 @@
+import React from 'react'
+import { render, type RenderOptions } from '@testing-library/react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { SessionProvider } from 'next-auth/react'
+import type { Session } from 'next-auth'
+import { createMockUser } from '../fixtures'
+
+// Custom render function that includes providers
+interface CustomRenderOptions extends RenderOptions {
+  session?: Session | null
+  queryClient?: QueryClient
+}
+
+const createTestQueryClient = () => {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+        gcTime: 0,
+        staleTime: 0,
+      },
+      mutations: {
+        retry: false,
+      },
+    },
+    logger: {
+      log: console.log,
+      warn: console.warn,
+      error: () => {}, // Suppress error logs in tests
+    },
+  })
+}
+
+export function renderWithProviders(
+  ui: React.ReactElement,
+  options: CustomRenderOptions = {}
+) {
+  const {
+    session = null,
+    queryClient = createTestQueryClient(),
+    ...renderOptions
+  } = options
+
+  function Wrapper({ children }: { children: React.ReactNode }) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <SessionProvider session={session}>
+          {children}
+        </SessionProvider>
+      </QueryClientProvider>
+    )
+  }
+
+  return {
+    ...render(ui, { wrapper: Wrapper, ...renderOptions }),
+    queryClient,
+  }
+}
+
+// Mock session helper
+export const createMockSession = (userOverrides = {}): Session => {
+  const user = createMockUser(userOverrides)
+  
+  return {
+    user: {
+      id: user.id,
+      email: user.email!,
+      name: user.name!,
+      image: user.image,
+      username: user.username,
+      role: user.role,
+    },
+    expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(), // 30 days
+  }
+}
+
+// Mock authenticated session
+export const createAuthenticatedSession = (userOverrides = {}): Session => {
+  return createMockSession({
+    status: 'ACTIVE',
+    emailVerified: new Date(),
+    ...userOverrides,
+  })
+}
+
+// Mock admin session
+export const createAdminSession = (userOverrides = {}): Session => {
+  return createMockSession({
+    role: 'ADMIN',
+    status: 'ACTIVE',
+    emailVerified: new Date(),
+    ...userOverrides,
+  })
+}
+
+// Test helpers for async operations
+export const waitForAsyncOperation = (ms = 100) => {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+// Mock API responses
+export const createMockApiResponse = <T>(data: T, status = 200) => {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    json: async () => data,
+    text: async () => JSON.stringify(data),
+  } as Response
+}
+
+// Mock error response
+export const createMockErrorResponse = (
+  message = 'Test error',
+  status = 400
+) => {
+  return {
+    ok: false,
+    status,
+    json: async () => ({ error: message }),
+    text: async () => JSON.stringify({ error: message }),
+  } as Response
+}
+
+// Mock WebSocket for testing
+export class MockWebSocket {
+  public readyState = WebSocket.OPEN
+  public onopen: ((event: Event) => void) | null = null
+  public onclose: ((event: CloseEvent) => void) | null = null
+  public onmessage: ((event: MessageEvent) => void) | null = null
+  public onerror: ((event: Event) => void) | null = null
+
+  constructor(public url: string) {}
+
+  send(data: string | ArrayBufferLike | Blob | ArrayBufferView) {
+    // Mock implementation
+  }
+
+  close(code?: number, reason?: string) {
+    this.readyState = WebSocket.CLOSED
+    if (this.onclose) {
+      this.onclose(new CloseEvent('close', { code, reason }))
+    }
+  }
+
+  // Helper methods for testing
+  simulateMessage(data: any) {
+    if (this.onmessage) {
+      this.onmessage(
+        new MessageEvent('message', {
+          data: typeof data === 'string' ? data : JSON.stringify(data),
+        })
+      )
+    }
+  }
+
+  simulateOpen() {
+    this.readyState = WebSocket.OPEN
+    if (this.onopen) {
+      this.onopen(new Event('open'))
+    }
+  }
+
+  simulateError() {
+    if (this.onerror) {
+      this.onerror(new Event('error'))
+    }
+  }
+}
+
+// Mock local/session storage for tests
+export const mockStorage = () => {
+  let store: Record<string, string> = {}
+
+  return {
+    getItem: jest.fn((key: string) => store[key] || null),
+    setItem: jest.fn((key: string, value: string) => {
+      store[key] = value
+    }),
+    removeItem: jest.fn((key: string) => {
+      delete store[key]
+    }),
+    clear: jest.fn(() => {
+      store = {}
+    }),
+    get length() {
+      return Object.keys(store).length
+    },
+    key: jest.fn((index: number) => Object.keys(store)[index] || null),
+  }
+}
+
+// Re-export testing library utilities
+export * from '@testing-library/react'
+export * from '@testing-library/user-event'
+export { default as userEvent } from '@testing-library/user-event'

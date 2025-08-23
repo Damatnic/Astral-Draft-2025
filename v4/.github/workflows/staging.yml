@@ -1,0 +1,605 @@
+# ==============================================================================
+# Astral Draft v4 - Staging Environment Workflow
+# ==============================================================================
+# This workflow handles staging deployments with:
+# - Continuous deployment for feature branches
+# - Comprehensive testing in staging environment
+# - Performance and security validation
+# - Integration testing with external services
+# - Preview deployments for pull requests
+# ==============================================================================
+
+name: 🎭 Staging Deployment
+
+on:
+  push:
+    branches: [develop, staging, 'feature/*', 'hotfix/*']
+  pull_request:
+    branches: [main, master, develop]
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy to staging'
+        required: false
+        default: 'develop'
+      run_tests:
+        description: 'Run full test suite'
+        required: false
+        default: true
+        type: boolean
+      deploy_preview:
+        description: 'Deploy as preview environment'
+        required: false
+        default: false
+        type: boolean
+
+# Security: Restrict permissions
+permissions:
+  contents: read
+  packages: write
+  pull-requests: write
+  checks: write
+  deployments: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: astral-draft/astral-draft-v4
+  NODE_VERSION: '18.17.0'
+  STAGING_URL: https://staging.astraldraft.com
+
+# Prevent concurrent staging deployments
+concurrency:
+  group: staging-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: ./v4
+
+jobs:
+  # ==========================================================================
+  # Environment Setup and Validation
+  # ==========================================================================
+  
+  setup-and-validate:
+    name: 🏗️ Setup & Validate
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    timeout-minutes: 10
+    
+    outputs:
+      should-deploy: ${{ steps.deployment-decision.outputs.should-deploy }}
+      environment-name: ${{ steps.deployment-decision.outputs.environment-name }}
+      deploy-url: ${{ steps.deployment-decision.outputs.deploy-url }}
+      image-tag: ${{ steps.image-tag.outputs.tag }}
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🔍 Determine deployment strategy
+        id: deployment-decision
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            if [[ "${{ github.event.inputs.deploy_preview }}" == "true" ]]; then
+              echo "should-deploy=true" >> $GITHUB_OUTPUT
+              echo "environment-name=preview-pr-${{ github.event.number }}" >> $GITHUB_OUTPUT
+              echo "deploy-url=https://pr-${{ github.event.number }}.staging.astraldraft.com" >> $GITHUB_OUTPUT
+            else
+              echo "should-deploy=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "should-deploy=true" >> $GITHUB_OUTPUT
+            echo "environment-name=staging" >> $GITHUB_OUTPUT
+            echo "deploy-url=${{ env.STAGING_URL }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 🏷️ Generate image tag
+        id: image-tag
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "tag=pr-${{ github.event.number }}-${{ github.sha }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag=staging-${{ github.sha }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 📋 Environment summary
+        run: |
+          echo "## 🎭 Staging Deployment Plan" >> $GITHUB_STEP_SUMMARY
+          echo "- **Should Deploy**: ${{ steps.deployment-decision.outputs.should-deploy }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Environment**: ${{ steps.deployment-decision.outputs.environment-name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL**: ${{ steps.deployment-decision.outputs.deploy-url }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Image Tag**: ${{ steps.image-tag.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
+
+  # ==========================================================================
+  # Code Quality and Quick Tests
+  # ==========================================================================
+  
+  quality-check:
+    name: 🔍 Quality Check
+    runs-on: ubuntu-latest
+    if: github.event.inputs.run_tests != 'false'
+    timeout-minutes: 15
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: 📦 Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: 🔧 Generate Prisma Client
+        run: npm run db:generate
+
+      - name: 🔍 Lint & Format Check
+        run: |
+          npm run lint
+          npm run format:check
+
+      - name: 🏗️ Type Check
+        run: npm run type-check
+
+      - name: 🧪 Quick Unit Tests
+        run: npm run test:unit -- --testPathPattern="(utils|helpers|components)" --maxWorkers=2
+
+  # ==========================================================================
+  # Build and Push Staging Image
+  # ==========================================================================
+  
+  build-staging-image:
+    name: 🐳 Build Staging Image
+    runs-on: ubuntu-latest
+    needs: [setup-and-validate, quality-check]
+    if: |
+      always() && 
+      needs.setup-and-validate.outputs.should-deploy == 'true' &&
+      (needs.quality-check.result == 'success' || needs.quality-check.result == 'skipped')
+    timeout-minutes: 25
+    
+    outputs:
+      image-ref: ${{ steps.build.outputs.image-ref }}
+      image-digest: ${{ steps.build.outputs.digest }}
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔐 Login to Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🏷️ Extract Metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=${{ needs.setup-and-validate.outputs.image-tag }}
+            type=raw,value=staging-latest,enable={{is_default_branch}}
+
+      - name: 🔨 Build and Push Image
+        id: build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: runner
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha,scope=staging
+          cache-to: type=gha,mode=max,scope=staging
+          platforms: linux/amd64
+          build-args: |
+            NODE_VERSION=${{ env.NODE_VERSION }}
+            BUILD_DATE=${{ github.event.head_commit.timestamp }}
+            VCS_REF=${{ github.sha }}
+            ENVIRONMENT=staging
+
+      - name: 📤 Output Image Reference
+        run: |
+          echo "image-ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.setup-and-validate.outputs.image-tag }}" >> $GITHUB_OUTPUT
+
+  # ==========================================================================
+  # Deploy to Staging Environment
+  # ==========================================================================
+  
+  deploy-staging:
+    name: 🚀 Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [setup-and-validate, build-staging-image]
+    if: needs.setup-and-validate.outputs.should-deploy == 'true'
+    timeout-minutes: 20
+    environment:
+      name: ${{ needs.setup-and-validate.outputs.environment-name }}
+      url: ${{ needs.setup-and-validate.outputs.deploy-url }}
+    
+    outputs:
+      deployment-status: ${{ steps.deploy.outputs.status }}
+      deployment-url: ${{ steps.deploy.outputs.url }}
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Deployment Environment
+        run: |
+          # Install deployment tools
+          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+          chmod +x kubectl
+          sudo mv kubectl /usr/local/bin/
+
+      - name: 🗄️ Database Migration (Staging)
+        run: |
+          # Setup database for staging deployment
+          npm ci --prefer-offline --no-audit
+          npm run db:generate
+          npm run db:migrate
+        env:
+          DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+
+      - name: 🚀 Deploy to Staging
+        id: deploy
+        run: |
+          # Configure staging deployment
+          export IMAGE_TAG="${{ needs.setup-and-validate.outputs.image-tag }}"
+          export ENVIRONMENT="staging"
+          export DEPLOYMENT_URL="${{ needs.setup-and-validate.outputs.deploy-url }}"
+          
+          # Execute staging deployment
+          chmod +x scripts/deploy.sh
+          ./scripts/deploy.sh \
+            --environment staging \
+            --image "${{ needs.build-staging-image.outputs.image-ref }}" \
+            --strategy rolling \
+            --health-endpoint "/api/health"
+          
+          echo "status=success" >> $GITHUB_OUTPUT
+          echo "url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+        env:
+          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS_STAGING }}
+          STAGING_DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+          STAGING_REDIS_URL: ${{ secrets.STAGING_REDIS_URL }}
+          NEXTAUTH_SECRET: ${{ secrets.STAGING_NEXTAUTH_SECRET }}
+          NEXTAUTH_URL: ${{ needs.setup-and-validate.outputs.deploy-url }}
+
+      - name: ⏳ Wait for Deployment
+        run: |
+          echo "Waiting for deployment to stabilize..."
+          sleep 30
+
+      - name: 🔍 Health Check
+        run: |
+          chmod +x scripts/health-check.sh
+          ./scripts/health-check.sh "${{ needs.setup-and-validate.outputs.deploy-url }}"
+
+  # ==========================================================================
+  # Comprehensive Testing on Staging
+  # ==========================================================================
+  
+  staging-tests:
+    name: 🧪 Staging Tests
+    runs-on: ubuntu-latest
+    needs: [setup-and-validate, deploy-staging]
+    if: |
+      always() && 
+      needs.deploy-staging.outputs.deployment-status == 'success' &&
+      github.event.inputs.run_tests != 'false'
+    timeout-minutes: 30
+    
+    strategy:
+      matrix:
+        test-suite: [smoke, integration, e2e, api]
+      fail-fast: false
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: 🚭 Smoke Tests
+        if: matrix.test-suite == 'smoke'
+        run: |
+          npm run test:smoke
+        env:
+          BASE_URL: ${{ needs.setup-and-validate.outputs.deploy-url }}
+
+      - name: 🔗 Integration Tests
+        if: matrix.test-suite == 'integration'
+        run: |
+          npm run test:integration:staging
+        env:
+          BASE_URL: ${{ needs.setup-and-validate.outputs.deploy-url }}
+          DATABASE_URL: ${{ secrets.STAGING_DATABASE_URL }}
+
+      - name: 🎭 End-to-End Tests
+        if: matrix.test-suite == 'e2e'
+        run: |
+          npx playwright install --with-deps
+          npm run test:e2e:staging
+        env:
+          BASE_URL: ${{ needs.setup-and-validate.outputs.deploy-url }}
+
+      - name: 🔌 API Tests
+        if: matrix.test-suite == 'api'
+        run: |
+          npm run test:api:staging
+        env:
+          BASE_URL: ${{ needs.setup-and-validate.outputs.deploy-url }}
+          API_KEY: ${{ secrets.STAGING_API_KEY }}
+
+      - name: 📤 Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: staging-test-results-${{ matrix.test-suite }}
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
+  # ==========================================================================
+  # Performance and Load Testing
+  # ==========================================================================
+  
+  performance-tests:
+    name: 📈 Performance Tests
+    runs-on: ubuntu-latest
+    needs: [setup-and-validate, deploy-staging]
+    if: |
+      always() && 
+      needs.deploy-staging.outputs.deployment-status == 'success'
+    timeout-minutes: 20
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 💡 Lighthouse Performance Audit
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun \
+            --collect.url="${{ needs.setup-and-validate.outputs.deploy-url }}" \
+            --collect.numberOfRuns=3 \
+            --assert.preset=lighthouse:recommended
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}
+          LHCI_BUILD_CONTEXT__CURRENT_BRANCH: ${{ github.ref_name }}
+
+      - name: ⚡ Load Testing with K6
+        run: |
+          docker run --rm -v $(pwd)/k6:/scripts \
+            grafana/k6 run /scripts/staging-load-test.js \
+            --env BASE_URL="${{ needs.setup-and-validate.outputs.deploy-url }}"
+
+      - name: 📤 Upload Performance Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-results-${{ github.sha }}
+          path: |
+            .lighthouseci/
+            k6-results/
+          retention-days: 7
+
+  # ==========================================================================
+  # Security Testing
+  # ==========================================================================
+  
+  security-tests:
+    name: 🔐 Security Tests
+    runs-on: ubuntu-latest
+    needs: [setup-and-validate, deploy-staging]
+    if: |
+      always() && 
+      needs.deploy-staging.outputs.deployment-status == 'success'
+    timeout-minutes: 25
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🕷️ OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.8.0
+        with:
+          target: ${{ needs.setup-and-validate.outputs.deploy-url }}
+          rules_file_name: '.zap/baseline-rules.tsv'
+          cmd_options: '-a -j -l INFO'
+
+      - name: 🔍 Nuclei Security Scan
+        uses: projectdiscovery/nuclei-action@main
+        with:
+          target: ${{ needs.setup-and-validate.outputs.deploy-url }}
+          templates: 'nuclei-templates'
+          output: 'nuclei-results.json'
+
+      - name: 📤 Upload Security Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: security-scan-results-${{ github.sha }}
+          path: |
+            report_html.html
+            nuclei-results.json
+          retention-days: 7
+
+  # ==========================================================================
+  # Pull Request Preview Comments
+  # ==========================================================================
+  
+  pr-comment:
+    name: 💬 PR Preview Comment
+    runs-on: ubuntu-latest
+    needs: [setup-and-validate, deploy-staging, staging-tests]
+    if: |
+      always() && 
+      github.event_name == 'pull_request' && 
+      needs.setup-and-validate.outputs.should-deploy == 'true'
+    
+    steps:
+      - name: 📝 Update PR Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const prNumber = context.payload.pull_request.number;
+            
+            const deploymentStatus = '${{ needs.deploy-staging.outputs.deployment-status }}';
+            const testResults = '${{ needs.staging-tests.result }}';
+            const deployUrl = '${{ needs.setup-and-validate.outputs.deploy-url }}';
+            
+            const statusEmoji = deploymentStatus === 'success' ? '✅' : '❌';
+            const testEmoji = testResults === 'success' ? '✅' : testResults === 'failure' ? '❌' : '⏳';
+            
+            const commentBody = `
+            ## 🎭 Staging Deployment Status
+            
+            ${statusEmoji} **Deployment**: ${deploymentStatus}
+            ${testEmoji} **Tests**: ${testResults}
+            
+            **Preview URL**: ${deployUrl}
+            
+            **Commit**: ${context.sha.substring(0, 7)}
+            **Branch**: ${context.ref}
+            
+            ---
+            
+            ### Quick Actions
+            - 🔍 [View Application](${deployUrl})
+            - 🧪 [Run Tests](${deployUrl}/test-dashboard)
+            - 📊 [Performance Metrics](${deployUrl}/metrics)
+            - 🔐 [Security Report](${deployUrl}/security)
+            
+            ---
+            
+            _This comment will be updated automatically when new commits are pushed._
+            `;
+            
+            // Find existing comment or create new one
+            const comments = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number: prNumber
+            });
+            
+            const existingComment = comments.data.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.includes('🎭 Staging Deployment Status')
+            );
+            
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existingComment.id,
+                body: commentBody
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: prNumber,
+                body: commentBody
+              });
+            }
+
+  # ==========================================================================
+  # Cleanup and Notifications
+  # ==========================================================================
+  
+  cleanup-and-notify:
+    name: 🧹 Cleanup & Notify
+    runs-on: ubuntu-latest
+    needs: [
+      setup-and-validate, 
+      deploy-staging, 
+      staging-tests, 
+      performance-tests, 
+      security-tests
+    ]
+    if: always()
+    
+    steps:
+      - name: 📊 Collect Results
+        id: results
+        run: |
+          # Determine overall status
+          deployment_status="${{ needs.deploy-staging.outputs.deployment-status }}"
+          tests_status="${{ needs.staging-tests.result }}"
+          
+          if [[ "$deployment_status" == "success" && "$tests_status" == "success" ]]; then
+            echo "overall_status=success" >> $GITHUB_OUTPUT
+            echo "status_emoji=✅" >> $GITHUB_OUTPUT
+          elif [[ "$deployment_status" == "success" ]]; then
+            echo "overall_status=partial" >> $GITHUB_OUTPUT
+            echo "status_emoji=⚠️" >> $GITHUB_OUTPUT
+          else
+            echo "overall_status=failure" >> $GITHUB_OUTPUT
+            echo "status_emoji=❌" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 💬 Slack Notification
+        uses: 8398a7/action-slack@v3
+        if: github.event_name != 'pull_request'
+        with:
+          status: custom
+          custom_payload: |
+            {
+              "text": "${{ steps.results.outputs.status_emoji }} Staging Deployment: ${{ steps.results.outputs.overall_status }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*${{ steps.results.outputs.status_emoji }} Astral Draft v4 Staging Deployment*\n\n*Status:* ${{ steps.results.outputs.overall_status }}\n*Environment:* <${{ needs.setup-and-validate.outputs.deploy-url }}|${{ needs.setup-and-validate.outputs.environment-name }}>\n*Branch:* ${{ github.ref_name }}\n*Commit:* ${{ github.sha }}\n*Actor:* ${{ github.actor }}"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: 🗑️ Cleanup Preview Environments
+        if: github.event_name == 'pull_request' && github.event.action == 'closed'
+        run: |
+          echo "Cleaning up preview environment for PR #${{ github.event.number }}"
+          # This would typically involve API calls to remove the preview deployment
+
+      - name: 📋 Deployment Summary
+        run: |
+          echo "## 🎭 Staging Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Overall Status**: ${{ steps.results.outputs.overall_status }} ${{ steps.results.outputs.status_emoji }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Environment**: ${{ needs.setup-and-validate.outputs.environment-name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **URL**: ${{ needs.setup-and-validate.outputs.deploy-url }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Deployment**: ${{ needs.deploy-staging.outputs.deployment-status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tests**: ${{ needs.staging-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Performance**: ${{ needs.performance-tests.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Security**: ${{ needs.security-tests.result }}" >> $GITHUB_STEP_SUMMARY

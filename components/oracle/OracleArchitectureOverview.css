@@ -1,0 +1,695 @@
+/* Oracle Architecture Overview Component Styles */
+
+.oracle-architecture-overview {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Header Section */
+.overview-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.overview-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.overview-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #b0b8c4;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Architecture Sections */
+.architecture-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.architecture-section {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.architecture-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #4facfe;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-description {
+    color: #b0b8c4;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* System Overview */
+.system-overview {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.overview-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.2);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4facfe;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #b0b8c4;
+    font-size: 0.9rem;
+}
+
+/* Architecture Diagram */
+.architecture-diagram {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.diagram-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.diagram-header h4 {
+    color: #4facfe;
+    margin: 0;
+}
+
+.progress-bar {
+    position: relative;
+    width: 200px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.progress-text {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    font-size: 0.8rem;
+    color: #b0b8c4;
+}
+
+/* Pipeline Visualization */
+.pipeline-visualization {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pipeline-layer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.pipeline-layer:hover {
+    border-color: #4facfe;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.pipeline-layer.active {
+    border-color: #00f2fe;
+    background: rgba(79, 172, 254, 0.1);
+}
+
+.pipeline-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.pipeline-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.pipeline-connector {
+    font-size: 1.5rem;
+    color: #4facfe;
+    margin: 0.5rem 0;
+}
+
+/* Architecture Layers */
+.architecture-layers {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.architecture-layer {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    color: #ffffff;
+    width: 100%;
+}
+
+.architecture-layer:hover {
+    border-color: #4facfe;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.2);
+}
+
+.architecture-layer.active {
+    border-color: #00f2fe;
+    background: rgba(79, 172, 254, 0.05);
+}
+
+.layer-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.layer-icon {
+    font-size: 1.5rem;
+}
+
+.layer-name {
+    margin: 0;
+    color: #4facfe;
+    font-size: 1.3rem;
+}
+
+.layer-content {
+    padding: 1.5rem;
+}
+
+.layer-description {
+    color: #b0b8c4;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.layer-components h4,
+.data-flow h4,
+.layer-examples h4 {
+    color: #ffffff;
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+}
+
+.layer-components ul,
+.layer-examples ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.layer-components li,
+.layer-examples li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #b0b8c4;
+}
+
+.layer-components li:last-child,
+.layer-examples li:last-child {
+    border-bottom: none;
+}
+
+/* Data Flow */
+.flow-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.flow-step {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+}
+
+.flow-arrow {
+    color: #4facfe;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* System Components */
+.system-components {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.system-component {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    color: #ffffff;
+}
+
+.system-component:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.2);
+}
+
+.system-component.selected {
+    background: rgba(79, 172, 254, 0.05);
+}
+
+.component-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.component-status {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.component-name {
+    margin: 0;
+    color: #4facfe;
+    font-size: 1.1rem;
+}
+
+.component-details {
+    padding: 1.5rem;
+}
+
+.component-purpose {
+    color: #b0b8c4;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.component-io {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.inputs h5,
+.outputs h5,
+.component-tech h5 {
+    color: #ffffff;
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.inputs ul,
+.outputs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inputs li,
+.outputs li {
+    color: #b0b8c4;
+    padding: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.component-tech p {
+    color: #b0b8c4;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Data Flow Visualization */
+.data-flow-visualization {
+    margin-top: 2rem;
+}
+
+.flow-description {
+    color: #b0b8c4;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.data-flow-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.data-flow-step {
+    display: flex;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-title {
+    color: #4facfe;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.step-description {
+    color: #b0b8c4;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+}
+
+.step-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.step-duration,
+.step-dependencies {
+    color: #888;
+}
+
+/* Flow Summary */
+.flow-summary {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flow-summary h4 {
+    color: #4facfe;
+    margin: 0 0 1rem 0;
+}
+
+.timing-breakdown {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.timing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.timing-label {
+    color: #b0b8c4;
+}
+
+.timing-value {
+    color: #4facfe;
+    font-weight: 500;
+}
+
+/* Insights Grid */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.insight-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.2);
+}
+
+.insight-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.insight-card h4 {
+    color: #4facfe;
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.insight-card p {
+    color: #b0b8c4;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Technical Specifications */
+.tech-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.spec-category {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spec-category h4 {
+    color: #4facfe;
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+}
+
+.spec-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spec-category li {
+    color: #b0b8c4;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    line-height: 1.5;
+}
+
+.spec-category li:last-child {
+    border-bottom: none;
+}
+
+.spec-category strong {
+    color: #ffffff;
+}
+
+/* Section Controls */
+.section-controls {
+    margin-bottom: 2rem;
+}
+
+.control-button {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.control-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+}
+
+.control-button.active {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+
+/* Footer */
+.overview-footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.next-steps h4 {
+    color: #4facfe;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+}
+
+.next-steps p {
+    color: #b0b8c4;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+}
+
+.next-step-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.next-step-btn {
+    background: rgba(79, 172, 254, 0.1);
+    color: #4facfe;
+    border: 1px solid rgba(79, 172, 254, 0.3);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.next-step-btn:hover {
+    background: rgba(79, 172, 254, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .oracle-architecture-overview {
+        padding: 1rem;
+    }
+    
+    .overview-header h2 {
+        font-size: 2rem;
+    }
+    
+    .overview-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .component-io {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .next-step-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pipeline-visualization {
+        gap: 0.5rem;
+    }
+    
+    .pipeline-layer {
+        min-width: 150px;
+        padding: 0.75rem 1rem;
+    }
+}

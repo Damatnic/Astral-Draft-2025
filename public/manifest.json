@@ -1,0 +1,56 @@
+{
+  "name": "Astral Draft - Fantasy Football",
+  "short_name": "Astral Draft",
+  "description": "Next-generation fantasy football platform with AI-powered insights",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "games", "entertainment"],
+  "screenshots": [
+    {
+      "src": "/screenshot-1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Draft Room"
+    },
+    {
+      "src": "/screenshot-2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Analytics Dashboard"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Draft Room",
+      "url": "/draft",
+      "description": "Enter the draft room"
+    },
+    {
+      "name": "My Team",
+      "url": "/team",
+      "description": "View your team"
+    },
+    {
+      "name": "Analytics",
+      "url": "/analytics",
+      "description": "View analytics dashboard"
+    }
+  ]
+}

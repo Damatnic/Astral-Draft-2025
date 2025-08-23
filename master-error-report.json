@@ -1,0 +1,6416 @@
+{
+  "timestamp": "2025-08-23T18:01:57.004Z",
+  "duration": 13333,
+  "mode": "conservative",
+  "config": {
+    "mode": "conservative",
+    "strategy": "safe",
+    "dryRun": false,
+    "backup": true
+  },
+  "totals": {
+    "files": 913,
+    "modified": 8,
+    "fixes": 8,
+    "errors": 0,
+    "warnings": 0,
+    "tscErrors": 100
+  },
+  "byCategory": {
+    "syntax": 1,
+    "imports": 7
+  },
+  "files": [
+    {
+      "path": "App.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\admin\\AdminDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\admin\\AdminRoute.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ai\\ConversationalOracle.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ai\\OraclePanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\AdvancedAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\analytics\\AdvancedOracleAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\analytics\\AnalyticsComponents.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\analytics\\AnalyticsPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\ChampionshipOddsPreview.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\ChampionshipProbChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\CompareTray.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\DraftGradeCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\DraftRecap.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\EnhancedAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\analytics\\MLAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\analytics\\MyTeamCompositionChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\OracleAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\PickTimeAnalytics.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\analytics\\PlayerCompareTool.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\PositionalScarcityChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\analytics\\RealTimeAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\analytics\\TeamNeedsAnalysis.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\AssistantSidekick.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\AstralDraftApp.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\auth\\EnhancedAuthView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\auth\\oauth\\OAuthLoginComponent.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\auth\\ProductionLoginInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\auth\\ProtectedRoute.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\auth\\SimpleLoginInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\auth\\UserSettings.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\cache\\CacheIntegrationDemo.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\cache\\CacheManagementDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\chat\\ChatPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\chat\\ReactionPicker.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\chat\\TradeEventMessage.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\AddPlayerModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\CreatePollModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\commissioner\\EnhancedMemberManagement.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\InviteMemberModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\LeagueManagementInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\commissioner\\LeagueSettingsEditor.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\commissioner\\ManageTradesModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\MemberManagementWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\PostAnnouncementModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\commissioner\\SeasonManagement.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\comparison\\MatchupTrendChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\comparison\\MatchupTrendChartFixed.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\comparison\\PlayerComparisonTool.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\comparison\\TeamComparisonCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\controls\\ProControls.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\Breadcrumbs.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\core\\CommandPalette.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\CreateLeagueModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\core\\EditProfileModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\EnhancedCreateLeagueModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\core\\ErrorBoundary.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\ErrorDisplay.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\Header.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\MobileNavMenu.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\core\\MockDraftModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\ModernErrorBoundary.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\ModernLoader.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\PreferencesModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\SuspenseLoader.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\core\\VoiceCommandButton.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\Counter.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\crisis\\CrisisInterventionWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\AccessibilityDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\dashboard\\AccessibilityDashboardSimple.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\ActivityFeedWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\dashboard\\CustomizeDashboardModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\DataPersistencePanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\OnTheHotSeatWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\OracleDashboardContainer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\dashboard\\OracleUserDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\PerformanceMetricsWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\dashboard\\PowerBalanceChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\dashboard\\WhatsNextWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\AiCoPilotPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\AuctionBlock.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\AuctionPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\DraftBoard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\draft\\DraftCompleteOverlay.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\DraftRoom.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\DraftSimulationDemo.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\draft\\DraftSimulationInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\draft\\EnhancedAiDraftCoach.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\draft\\EnhancedSnakeDraftRoom.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\GeniusAiChat.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\draft\\LiveDraftLog.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\MyRosterPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\TeamColumn.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\draft\\TurnTimer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\examples\\GestureExampleComponent.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\Header.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\history\\ChampionChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\history\\FinalStandingsTable.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\HistoryPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\hub\\AnnouncementsWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\hub\\RivalryWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\hub\\SideBetsWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\hub\\WeeklyPollWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\ABIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\AdjustmentsIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\AlertTriangleIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ArchiveIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ArrowDownIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ArrowRightIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ArrowRightLeftIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ArrowUpIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\AwardIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\BarChartIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\BellIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\BookOpenIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\BotMessageSquareIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\BrainCircuitIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CalendarIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ChartBarIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CheckCircleIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CheckIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ChevronDownIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ChevronLeftIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ChevronRightIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ClearIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ClipboardCheckIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\ClipboardIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ClipboardListIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ClockIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CloseIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CommandIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CompareIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ContractIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CrosshairIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\CrownIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\DollarSignIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\DownloadIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\DragHandleIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\EmptyTumbleweedIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ExportIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\EyeIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\FileTextIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\FilmIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\FireIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\FirstPlaceIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\FlameIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\FlaskConicalIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\GavelIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\GemIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\GlobeIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\HeartIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\HistoryIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ImageIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\InboxIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\InfoIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\InjuryIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\LayoutIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\LightbulbIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\LinkIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ListChecksIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\LogOutIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MailIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MaskIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MedalIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MegaphoneIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MenuIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MessageCircleIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MicrophoneIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\MinusIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MoonIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\MusicIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\NewsIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\NewspaperIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PaperPlaneIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PartyPopperIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PauseIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PawPrintIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PencilIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PercentIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PhoneIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\PlayIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\PlusCircleIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\QueueIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\RefineIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\RefreshIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\RestoreIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\RobotIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SaveIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ScalesIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ScrollTextIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SearchIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\SendIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SettingsIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\Share2Icon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ShareIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ShieldAlertIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ShieldCheckIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SnowflakeIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SparklesIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\StarFilledIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\StarIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\StopIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\SunIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SwordIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\SwordsIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TargetIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TelescopeIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TournamentIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\Trash2Icon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TrashIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\TrendingDownIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TrendingUpIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TrophyIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\TvIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\UserIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\UserPlusIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\UserRemoveIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\UsersIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\icons\\WandIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\XCircleIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\XIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\icons\\ZapIcon.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\injury\\InjuryAlertNotification.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\injury\\InjuryDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\InputArea.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\layout\\MainLayout.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\layout\\MobileEnhancedDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\layout\\MobileNavigation.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\league\\LeagueCreationWizard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\manager\\RivalryWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\matchup\\LiveEventTicker.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\matchup\\MatchupAnalysisWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\matchup\\MatchupRosterView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\matchup\\MatchupScoreboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\matchup\\PlayerRow.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\matchup\\RivalryReportModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\messages\\ConversationList.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\messages\\MessageThread.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ml\\MLPredictionDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\AccessibleMobileComponents.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\EnhancedMobileOracleInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobileAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\MobileBottomNavigation.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\MobileDraftInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\MobileGestureNavigation.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobileLayout.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobileLayoutWrapper.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobileNavigation.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\MobileOfflineIndicator.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobilePlayerCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\MobilePlayerSearch.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobilePullToRefresh.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\mobile\\MobileSearchInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\mobile\\PWAInstallPrompt.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\modals\\AssignAwardsModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\modals\\ChecklistReportModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\modals\\EditTeamBrandingModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\modals\\ProposeSideBetModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\modals\\ProposeTradeModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\modals\\ShareTeamCardModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\modals\\TradeScenarioModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\modals\\TradeStoryModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\navigation\\EnhancedMobileNav.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\navigation\\MobileResponsiveNav.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\notifications\\NotificationBell.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\notifications\\NotificationCenter.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\notifications\\NotificationDemo.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\notifications\\NotificationToast.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\onboarding\\FriendOnboardingGuide.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\OnboardingGuide.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\AdvancedEnsembleMLDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\EnhancedOracleMLDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\EnhancedOracleMobileInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\EnsembleMLWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\MobileOptimizedOracleInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\MobileOracleInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\NotificationCenter.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\NotificationDemo.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\NotificationPreferences.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\OptimizedOracleRealTimePredictionInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\OracleArchitectureOverview.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleBeginnerTutorial.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleCacheDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleCalibrationValidationSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 6
+    },
+    {
+      "path": "components\\oracle\\OracleConfidenceEstimationSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\oracle\\OracleDataIngestionSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleEnsemblePredictionSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleErrorBoundary.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\OracleFeatureExtractionSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleGeminiAISection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleLeaderboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleNeuralNetworkSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\oracle\\OraclePerformanceDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleRealTimeDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleRealTimePredictionInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\OracleRewardsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\OracleStatisticalModelingSection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\oracle\\PredictionCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\PredictionDetail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\RealtimeUpdatesWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\oracle\\TrainingDataManager.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 4
+    },
+    {
+      "path": "components\\oracle\\TrainingDataManagerNew.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\oracle\\UserStatsWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\OracleOnlyApp.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\OutputArea.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\OutputGrid.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\payment\\PaymentCheckout.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\AdvancedStatsTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\player\\EnhancedPlayerDetailModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\NewsAndUpdatesTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\player\\PlayerCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\PlayerComparisonTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\PlayerDetailModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\player\\PlayerPool.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\PlayerProfileView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\PlayerResearchInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\SeasonTrendsTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\player\\SimilarPlayersPopup.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\tabs\\ContractTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\tabs\\FantasyTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\tabs\\GameLogTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\player\\tabs\\IntelligenceTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\tabs\\OverviewTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\player\\tabs\\ScoutingTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\player\\tabs\\StoryTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\prep\\DraftPreparationInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\prep\\MockDraftHistory.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\prep\\MyRankingsEditor.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\PresentationMode.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\profile\\AchievementsWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ProjectSidebar.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\rankings\\PowerRankingCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\rankings\\PowerRankingCardSkeleton.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\reports\\AdvancedReportingInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\reports\\RecapVideoPlayer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\reports\\SeasonReviewDisplay.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\reports\\WeeklyReportDisplay.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\SettingsModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\SkeletonLoader.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\social\\CommunityHubIntegration.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\social\\LeagueHistoryViewer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\social\\SocialFeed.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\social\\SocialHub.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\social\\SocialTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "components\\social\\TeamStoryBuilder.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\social\\TradeNegotiationChat.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\story\\StoryHighlightCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\story\\StorySection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\strategy\\WarRoomPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\AiCoManagerWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\BriefingItemCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\ChampionshipOddsWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\CurrentMatchupWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\DailyBriefingWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\EditHeaderModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\EnhancedRosterManager.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\FuturePicksWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\InjuryReportWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\LeagueTeamsList.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\LineupOptimizer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\ManageTradeBlockModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\MascotWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\PlaceClaimModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\ProposeTradeModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\SeasonOutlookWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\StartSitWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TeamAnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TeamBrandingCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TeamChemistryWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\TradeBlockWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TradeCenterWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TradeOfferCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TradeWhispererWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\TransactionHistory.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\TrophyCaseWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\VisualRoster.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\team\\WaiverIntelligenceWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\team\\WatchlistWidget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\trade\\AutomatedSuggestionsTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\trade\\FairnessAnalysisTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\trade\\ImpactAssessmentTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\trade\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\trade\\TradeAnalysisDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\trade\\TradeAnalysisInterface.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\trade\\TradeAnalysisInterfaceClean.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\trade\\TradeAnalyzerView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\trade\\TradeBuilderTab.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\trends\\PlayerPerformanceChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\trends\\SeasonalTrendsChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\trends\\WeeklyScoreChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ui\\AccessibleButton.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\AccessibleModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\AnimatedNumber.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ui\\Avatar.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Badge.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Card.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\EmptyState.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\ErrorBoundary.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\GroundingCitations.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ui\\InstallPrompt.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\LazyImage.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\LeagueCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\LoadingSpinner.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\MobilePatterns.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ui\\MobilePatternsSimple.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Modal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Navigation.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\NewsTicker.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Notification.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\NotificationManager.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Progress.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\PullToRefresh.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\RadialChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ui\\ShadcnTabs.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\SparklineChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\StatChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Tabs.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\ui\\TeamSwitcher.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\ThemeToggle.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\ToggleSwitch.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Tooltip.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\VirtualComponents.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\ui\\Widget.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\workspace\\CommentSidebar.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\workspace\\EditorPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "components\\workspace\\OutputPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "components\\workspace\\Workspace.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "contexts\\AppContext.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "contexts\\AuthContext.new.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "contexts\\AuthContext.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "contexts\\NotificationContext.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "contexts\\PaymentContext.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "contexts\\ProductionAuthContext.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "contexts\\SimpleAuthContext.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useAdvancedTouch.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useAdvancedTouchGestures.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useAuctionDraft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useCache.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useCopyToClipboard.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useDataPersistence.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useDraftCommentary.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useDraftRoom.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useDraftSimulator.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useEnhancedAiDraftCoach.ts",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 3
+    },
+    {
+      "path": "hooks\\useEnhancedAnalytics.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useEnhancedMatchupAnalytics.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useEnhancedRealTimeDraft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useHistoricalAnalytics.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useHotkeys.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useInjuryTracking.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useLeague.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useLiveData.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useMediaQuery.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useMLPlayerPredictions.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useMobileDetection.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useMobileOffline.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useMobileOfflineManager.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useMobileViewport.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useOracleCacheHooks.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useOracleDashboard.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useOracleMobileHooks.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useOracleNotifications.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useOraclePerformanceOptimization.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useOracleRealTime.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useOracleWebSocket.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\usePlayerComparison.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useRealtimeAuction.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useRealtimeDraft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useRealtimeNotifications.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useRealTimeSync.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useSeasonContest.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useSnakeDraft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "hooks\\useSound.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useTradeAnalysis.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useVirtualScroll.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "hooks\\useWebSocket.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "index.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\accessibilityMonitoringService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\adminService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\advancedReportingService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\apiClient.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\authService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\cacheService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\celebrityDraftPersonas.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\contestScoringService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "services\\databaseOptimization.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\dataPersistenceService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\draftPreparationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\draftSimulationEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\draftWebSocketService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\enhancedAnalyticsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\enhancedAuthService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\enhancedCacheService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\enhancedDraftEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\enhancedDraftSimulationEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\enhancedMatchupAnalyticsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\enhancedNotificationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\enhancedRealTimeSyncService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\enhancedTradeAnalysisEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\geminiService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\geminiServiceSecure.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\geniusAiAssistant.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\injuryTrackingService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\leagueManagementService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\liveDataService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\machineLearningPlayerPredictionService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\marketInefficiencyDetector.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\matchupDifficultyAnalyzer.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\mobileOfflineService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\netlifyAuthService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\notificationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oauthService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\optimizedOracleQueries.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleAccuracyEnhancementService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleAdvancedAnalyticsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleAnalyticsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleApiClient.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleCacheIntegrationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleCollaborativeService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleCollaborativeServiceMock.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleDatabaseOptimizationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleEducationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleEnsembleMachineLearningService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 3
+    },
+    {
+      "path": "services\\oracleHistoricalAnalyticsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleIntelligentCachingService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleLiveDataIntegrationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleMachineLearningService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleMobileService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oraclePerformanceCacheService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oraclePerformanceIndex.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oraclePerformanceOptimizationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oraclePerformanceService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oraclePredictionService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "services\\oracleRealTimeBridge.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleRealTimeService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "services\\oracleRewardsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleScoringService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\oracleSocialService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\oracleUserDashboardService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\paymentService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\performanceMonitoringService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\playerComparisonService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\playerCorrelationOptimizationEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\playerResearchService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\premiumFeatureService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\productionOraclePredictionService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\productionSportsDataService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\productionSportsDataServiceSecure.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\rbacService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\realTimeDataService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\realTimeDataServiceV2.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\realTimeDraftService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\realTimeNflDataService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\realtimeNotificationService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\realTimeStrategyAdjustmentService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\seasonalTrendsAnalysisService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\seasonContestService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\secureApiClient.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\simpleAuthService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\socialInteractionService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "services\\tradeAnalysisEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\tradeAnalysisService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "services\\waiverWireAnalyzer.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "src\\app\\leagues\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "sw.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "types.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\accessibility.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\careerStats.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\confetti.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\keyboardNavigation.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\lazyLoading.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\mobileAccessibilityComponents.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobileAccessibilityUtils.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobileAccessibilityUtils.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\mobileCSSOptimizer.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobileFormEnhancement.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobileLazyLoader.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobileOptimizationUtils.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobilePerformanceMonitor.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\mobilePerformanceUtils.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\mobileTestingSuite.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\mockData.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\navigationUtils.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\notifications.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\oracleAnalyticsDemo.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\oracleRewardsDemo.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\pwa.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\runMobileTests.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\shareableLink.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\stats.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\story.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "utils\\streaks.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "utils\\time.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\commitlint.config.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\jest.config.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\jest.setup.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\k6\\load-tests.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\monitoring\\sentry.config.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\next-env.d.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\next.config.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\next.config.prod.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\playwright.config.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\postcss.config.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\prisma\\seed\\nfl-teams.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\prisma\\seed\\players-k-dst.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\prisma\\seed\\players-qb-rb.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "v4\\prisma\\seed\\players-te.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\prisma\\seed\\players-wr.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\prisma\\seed.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\public\\sw.js",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\draft\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\draft\\[id]\\mock\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\draft\\[id]\\page-connected.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\draft\\[id]\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\draft\\[id]\\recap\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\draft\\[id]\\room\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\(dashboard)\\layout.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\api\\admin\\security\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\check-username\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\forgot-password\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\register\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\resend-verification\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\reset-password\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\validate-reset-token\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\verify-email\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\api\\auth\\[...nextauth]\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\health\\route.ts",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 170
+    },
+    {
+      "path": "v4\\src\\app\\api\\notifications\\vapid-key\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\api\\trpc\\[trpc]\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\unsubscribe\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\api\\webhooks\\email\\route.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\auth\\error\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\auth\\two-factor\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\design-system\\page.tsx",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\fantasycast\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 3
+    },
+    {
+      "path": "v4\\src\\app\\forgot-password\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\layout.tsx",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\leagues\\create\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\leagues\\join\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\leagues\\page.tsx",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 3
+    },
+    {
+      "path": "v4\\src\\app\\leagues\\[id]\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "v4\\src\\app\\leagues\\[id]\\playoffs\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\live\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "v4\\src\\app\\login\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\notifications\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\oracle\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\page.test.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\players\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\players\\[id]\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\profile\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\register\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\reset-password\\[token]\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\settings\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\team\\[id]\\matchup\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\team\\[id]\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\team\\[id]\\roster\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\trades\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\verify-email\\[token]\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\app\\waivers\\page-integrated.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\app\\waivers\\page.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\admin\\SecurityDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\analytics\\AnalyticsDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\auth\\AuthCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\auth\\PasswordStrengthIndicator.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\auth\\SocialAuthButtons.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\auth\\__tests__\\AuthCard.test.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\beta\\BetaFeedback.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\draft\\AuctionDraftRoom.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\draft\\DraftBoard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\draft\\DraftChat.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\draft\\DraftPickTrading.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\draft\\DraftQueue.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\draft\\DraftRosterView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\draft\\DraftTimer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\draft\\KeeperSelection.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\draft\\MockDraftRoom.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\draft\\PlayerSearch.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\CommissionerTools.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\CreateLeagueModal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\LeagueActivity.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\LeagueCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\LeagueChat.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\LeagueSchedule.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\LeagueStandings.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\RosterGrid.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\fantasy\\WaiverWire.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\help\\FAQ.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\help\\HelpCenter.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\help\\Tooltip.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\help\\VideoTutorials.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\layout\\CyberNav.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\layout\\CyberSidebar.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\lazy\\index.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\notifications\\NotificationBell.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\notifications\\NotificationCenter.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\notifications\\NotificationPreferences.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\notifications\\NotificationSystemDemo.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\notifications\\NotificationToast.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\onboarding\\InteractiveTutorial.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\onboarding\\WelcomeWizard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\oracle\\InsightPanel.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\oracle\\PredictionCard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\oracle\\TradeAnalyzer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\oracle\\TrendChart.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\performance\\BundleAnalyzer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\performance\\PerformanceDashboard.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\playoffs\\ConsolationBracket.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\playoffs\\PlayoffBracket.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\playoffs\\RecordBook.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\playoffs\\SeasonArchive.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\playoffs\\TrophyRoom.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\pwa\\InstallPrompt.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Animations.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Badge.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Button.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Card.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\DesignSystemShowcase.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Input.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\LoadingStates.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Modal.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Progress.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\ResponsiveHelpers.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\Tabs.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\components\\ui\\__tests__\\Button.test.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\data\\nfl-players.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\env.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\hooks\\useAnalytics.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\hooks\\useAuth.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\hooks\\useDraftRoom.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\hooks\\useMediaQuery.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\hooks\\useMockDraft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\hooks\\usePerformance.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\hooks\\usePWA.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\hooks\\__tests__\\useAuth.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\analytics\\ga4.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\api.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\auth\\config.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\auth\\email.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\auth\\jwt.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\oracle\\gemini-client.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\performance\\cacheManager.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\performance\\dbOptimizer.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\performance\\imageOptimizer.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\performance\\monitoring.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\providers.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\rate-limit.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\security\\apiKeyManager.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\security\\csrfProtection.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\security\\inputSanitizer.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\security\\rateLimiter.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\security\\sqlValidator.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\utils.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\validation\\auth.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\lib\\validation\\schemas.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\lib\\__tests__\\utils.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\middleware.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\providers\\NotificationProvider.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\providers\\TRPCProvider.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\providers\\WebSocketProvider.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\external\\sportsio.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\root.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\advancedDraft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\auth.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\cron.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\draft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\email.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\league.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\matchup.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\notification.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\oracle.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\player.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\playoffs.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\stats.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\team.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\trade.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\transaction.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\user.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\waiver.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "v4\\src\\server\\api\\routers\\__tests__\\trade.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\api\\trpc.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\auth.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\cron\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\cron\\jobs\\injuries.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\cron\\jobs\\league.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\cron\\jobs\\matchups.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\cron\\jobs\\scoring.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\cron\\jobs\\stats.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\cron\\__tests__\\cronOrchestrator.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\db.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\draft\\auctionManager.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\email\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\email\\logger.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\BaseEmailTemplate.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\DraftReminderEmail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\DraftResultsEmail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\MatchupReminderEmail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\TradeNotificationEmail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\WaiverResultsEmail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\email\\templates\\WelcomeEmail.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\email\\test-email-system.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\jobs\\tradeProcessor.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\middleware\\rateLimit.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\middleware\\security.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\notifications\\push.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\notifications\\utils.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\playoffs\\awardsCalculator.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\playoffs\\bracketGenerator.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\playoffs\\championshipManager.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\queue\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\queue\\jobs\\notifications.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\queue\\jobs\\scoring.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\queue\\jobs\\stats.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\queue\\jobs\\trades.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\queue\\jobs\\waivers.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\queue\\jobs\\waiverScheduler.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\redis.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\websocket\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\server\\websocket\\rooms\\draft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\server\\websocket\\rooms\\league.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\services\\oracleAI.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\services\\playerStatsService.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\services\\realtime.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\services\\scoringEngine.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\services\\sportsData.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\stores\\oracleStore.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\stores\\useAppStore.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\test\\factories\\baseFactory.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\test\\factories\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\test\\factories\\leagueFactory.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\test\\factories\\userFactory.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\test\\setup.tsx",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\types\\draft.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\src\\types\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\src\\utils\\tradeAnalysis.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tailwind.config.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\e2e\\auth.spec.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\e2e\\complete-user-journey.spec.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\e2e\\critical-user-journeys.spec.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\e2e\\draft.spec.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\e2e\\example.spec.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tests\\e2e\\mobile.spec.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\fixtures\\index.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tests\\fixtures\\leagueFixtures.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\fixtures\\oracleFixtures.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tests\\fixtures\\playerFixtures.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\fixtures\\teamFixtures.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tests\\fixtures\\userFixtures.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tests\\integration\\cross-feature-flow.integration.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\integration\\trpc\\auth.integration.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\unit\\auth.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\tests\\unit\\league.test.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "v4\\tests\\unit\\oracle.test.ts",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "v4\\tests\\unit\\roster.test.ts",
+      "modified": true,
+      "fixes": 1,
+      "errors": 0,
+      "duration": 2
+    },
+    {
+      "path": "v4\\tests\\utils\\testUtils.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "v4\\vitest.config.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\AnalyticsHubView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\AssistantView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\AuthView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\BeatTheOracleView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\ChampionshipOddsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\CommissionerToolsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\CustomScoringEditorView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\DashboardView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\DraftPrepCenterView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\DraftRoomView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\DraftStoryView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\EditLeagueSettingsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\EditRosterView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\EnhancedDashboardView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\FinanceTrackerView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\GamedayHostView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\HistoricalAnalyticsOverview.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\HistoricalAnalyticsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\KeeperSelectionView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LeaderboardView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LeagueConstitutionView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\LeagueHistoryView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LeagueHubView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LeagueNewspaperView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LeagueRulesView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\LeagueStandingsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LeagueStatsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\LiveDraftRoomView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ManagerView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\MatchupView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\MessagesView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ModernAuthView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ModernDashboardView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\OpenLeaguesView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\PerformanceTrendsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\PlayoffBracketView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\PowerRankingsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ProfileView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ProjectedStandingsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ProjectIntegrityView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ProjectView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\RealTimeAnalyticsView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\ScheduleManagementView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\SeasonArchiveView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\SeasonContestView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\SeasonReviewView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\SeasonStoryView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\StartSitToolView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\TeamComparisonView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\TeamHubView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\TeamManagementView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\TrophyRoomView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\WaiverWireView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 1
+    },
+    {
+      "path": "views\\WeeklyRecapVideoView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "views\\WeeklyReportView.tsx",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    },
+    {
+      "path": "vite.config.ts",
+      "modified": false,
+      "fixes": 0,
+      "errors": 0,
+      "duration": 0
+    }
+  ]
+}

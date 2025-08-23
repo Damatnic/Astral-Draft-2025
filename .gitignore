@@ -1,0 +1,15 @@
+
+# Environment variables
+.env.local
+.env
+
+# API Keys - NEVER commit
+*.key
+*.pem
+
+# Backups
+*.bak
+.master-scanner-backup/
+.type-fix-backup/
+.error-scanner-backup/
+.conservative-backup/

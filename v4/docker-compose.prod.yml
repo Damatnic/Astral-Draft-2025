@@ -1,0 +1,525 @@
+version: '3.8'
+
+# ==============================================================================
+# Astral Draft v4 - Production Deployment Stack
+# ==============================================================================
+# This docker-compose file provides a production-ready environment including:
+# - Next.js application with optimized build
+# - PostgreSQL database with production settings
+# - Redis for caching and sessions
+# - Nginx reverse proxy with SSL
+# - Monitoring and logging services
+# - Load balancing and high availability
+# ==============================================================================
+
+x-production-variables: &production-variables
+  NODE_ENV: production
+  NEXT_TELEMETRY_DISABLED: '1'
+
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-restart-policy: &restart-policy
+  restart: unless-stopped
+
+x-healthcheck-defaults: &healthcheck-defaults
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 30s
+
+services:
+  # ==========================================================================
+  # Load Balancer / Reverse Proxy
+  # ==========================================================================
+
+  nginx:
+    image: nginx:alpine
+    container_name: astral-draft-v4-nginx
+    <<: *restart-policy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./nginx/logs:/var/log/nginx
+      - nginx_cache:/var/cache/nginx
+    networks:
+      - web-network
+      - app-network
+    depends_on:
+      - app-blue
+      - app-green
+    logging: *default-logging
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "curl -f http://localhost/health || exit 1"]
+
+  # ==========================================================================
+  # Application Services (Blue-Green Deployment)
+  # ==========================================================================
+
+  # Blue deployment slot
+  app-blue:
+    image: ${REGISTRY:-ghcr.io/astral-draft}/astral-draft-v4:${IMAGE_TAG:-latest}
+    container_name: astral-draft-v4-app-blue
+    <<: *restart-policy
+    environment:
+      <<: *production-variables
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: redis://redis-cluster:6379
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      # Feature flags for blue-green deployment
+      DEPLOYMENT_SLOT: blue
+      DEPLOYMENT_VERSION: ${BLUE_VERSION:-v1}
+    expose:
+      - "3000"
+    networks:
+      - app-network
+      - db-network
+    depends_on:
+      postgres-master:
+        condition: service_healthy
+      redis-cluster:
+        condition: service_healthy
+    logging: *default-logging
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  # Green deployment slot
+  app-green:
+    image: ${REGISTRY:-ghcr.io/astral-draft}/astral-draft-v4:${IMAGE_TAG:-latest}
+    container_name: astral-draft-v4-app-green
+    <<: *restart-policy
+    environment:
+      <<: *production-variables
+      DATABASE_URL: ${DATABASE_URL}
+      REDIS_URL: redis://redis-cluster:6379
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: ${NEXTAUTH_URL}
+      # Feature flags for blue-green deployment
+      DEPLOYMENT_SLOT: green
+      DEPLOYMENT_VERSION: ${GREEN_VERSION:-v1}
+    expose:
+      - "3000"
+    networks:
+      - app-network
+      - db-network
+    depends_on:
+      postgres-master:
+        condition: service_healthy
+      redis-cluster:
+        condition: service_healthy
+    logging: *default-logging
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"]
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    profiles:
+      - green-deployment
+
+  # ==========================================================================
+  # Database Services (Master-Slave Replication)
+  # ==========================================================================
+
+  # PostgreSQL Master (Primary)
+  postgres-master:
+    image: postgres:15-alpine
+    container_name: astral-draft-v4-db-master
+    <<: *restart-policy
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-astral_draft_v4}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_REPLICATION_USER: ${POSTGRES_REPLICATION_USER:-replicator}
+      POSTGRES_REPLICATION_PASSWORD: ${POSTGRES_REPLICATION_PASSWORD}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_master_data:/var/lib/postgresql/data
+      - ./postgres/postgresql.prod.conf:/etc/postgresql/postgresql.conf
+      - ./postgres/pg_hba.prod.conf:/etc/postgresql/pg_hba.conf
+      - ./scripts/setup-replication.sh:/docker-entrypoint-initdb.d/setup-replication.sh
+    networks:
+      - db-network
+    command: >
+      postgres
+      -c config_file=/etc/postgresql/postgresql.conf
+      -c hba_file=/etc/postgresql/pg_hba.conf
+    logging: *default-logging
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-astral_draft_v4}"]
+
+  # PostgreSQL Slave (Read Replica)
+  postgres-slave:
+    image: postgres:15-alpine
+    container_name: astral-draft-v4-db-slave
+    <<: *restart-policy
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-astral_draft_v4}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGUSER: ${POSTGRES_USER:-postgres}
+      POSTGRES_MASTER_HOST: postgres-master
+      POSTGRES_REPLICATION_USER: ${POSTGRES_REPLICATION_USER:-replicator}
+      POSTGRES_REPLICATION_PASSWORD: ${POSTGRES_REPLICATION_PASSWORD}
+    volumes:
+      - postgres_slave_data:/var/lib/postgresql/data
+      - ./scripts/setup-slave.sh:/docker-entrypoint-initdb.d/setup-slave.sh
+    networks:
+      - db-network
+    depends_on:
+      postgres-master:
+        condition: service_healthy
+    logging: *default-logging
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-astral_draft_v4}"]
+    profiles:
+      - ha-database
+
+  # ==========================================================================
+  # Redis Cluster for High Availability
+  # ==========================================================================
+
+  # Redis Master
+  redis-cluster:
+    image: redis:7-alpine
+    container_name: astral-draft-v4-redis-master
+    <<: *restart-policy
+    command: >
+      redis-server
+      --maxmemory 512mb
+      --maxmemory-policy allkeys-lru
+      --save 900 1 300 10 60 10000
+      --appendonly yes
+      --appendfsync everysec
+      --auto-aof-rewrite-percentage 100
+      --auto-aof-rewrite-min-size 64mb
+    volumes:
+      - redis_master_data:/data
+    networks:
+      - db-network
+    logging: *default-logging
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "redis-cli", "ping"]
+
+  # Redis Sentinel for failover
+  redis-sentinel:
+    image: redis:7-alpine
+    container_name: astral-draft-v4-redis-sentinel
+    <<: *restart-policy
+    command: >
+      redis-sentinel /etc/redis/sentinel.conf
+      --sentinel announce-ip ${REDIS_SENTINEL_ANNOUNCE_IP:-172.21.0.10}
+      --sentinel announce-port 26379
+    volumes:
+      - ./redis/sentinel.conf:/etc/redis/sentinel.conf
+    networks:
+      - db-network
+    depends_on:
+      - redis-cluster
+    logging: *default-logging
+    profiles:
+      - ha-redis
+
+  # ==========================================================================
+  # Monitoring and Observability
+  # ==========================================================================
+
+  # Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: astral-draft-v4-prometheus
+    <<: *restart-policy
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.prod.yml:/etc/prometheus/prometheus.yml:ro
+      - ./monitoring/rules:/etc/prometheus/rules:ro
+      - prometheus_data:/prometheus
+    networks:
+      - monitoring-network
+      - app-network
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+      - '--web.enable-admin-api'
+      - '--storage.tsdb.retention.time=30d'
+    logging: *default-logging
+    profiles:
+      - monitoring
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: astral-draft-v4-grafana
+    <<: *restart-policy
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD}
+      GF_SECURITY_SECRET_KEY: ${GRAFANA_SECRET_KEY}
+      GF_DATABASE_TYPE: postgres
+      GF_DATABASE_HOST: postgres-master:5432
+      GF_DATABASE_NAME: ${GRAFANA_DB_NAME:-grafana}
+      GF_DATABASE_USER: ${GRAFANA_DB_USER:-grafana}
+      GF_DATABASE_PASSWORD: ${GRAFANA_DB_PASSWORD}
+      GF_INSTALL_PLUGINS: grafana-clock-panel,grafana-simple-json-datasource,grafana-piechart-panel
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources:ro
+    networks:
+      - monitoring-network
+      - db-network
+    depends_on:
+      - prometheus
+      - postgres-master
+    logging: *default-logging
+    profiles:
+      - monitoring
+
+  # Node Exporter for system metrics
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: astral-draft-v4-node-exporter
+    <<: *restart-policy
+    pid: host
+    volumes:
+      - '/:/host:ro,rslave'
+    command:
+      - '--path.rootfs=/host'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    networks:
+      - monitoring-network
+    logging: *default-logging
+    profiles:
+      - monitoring
+
+  # ==========================================================================
+  # Logging and Log Aggregation
+  # ==========================================================================
+
+  # Elasticsearch for log storage
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+    container_name: astral-draft-v4-elasticsearch
+    <<: *restart-policy
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - xpack.security.enabled=false
+      - xpack.monitoring.collection.enabled=true
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - logging-network
+    logging: *default-logging
+    profiles:
+      - logging
+
+  # Logstash for log processing
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.9.0
+    container_name: astral-draft-v4-logstash
+    <<: *restart-policy
+    volumes:
+      - ./logging/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+    networks:
+      - logging-network
+    depends_on:
+      - elasticsearch
+    logging: *default-logging
+    profiles:
+      - logging
+
+  # Kibana for log visualization
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.9.0
+    container_name: astral-draft-v4-kibana
+    <<: *restart-policy
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    networks:
+      - logging-network
+    depends_on:
+      - elasticsearch
+    logging: *default-logging
+    profiles:
+      - logging
+
+  # ==========================================================================
+  # Backup and Maintenance
+  # ==========================================================================
+
+  # Database backup service
+  backup:
+    image: postgres:15-alpine
+    container_name: astral-draft-v4-backup
+    environment:
+      POSTGRES_HOST: postgres-master
+      POSTGRES_DB: ${POSTGRES_DB:-astral_draft_v4}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-7}
+    volumes:
+      - backup_data:/backups
+      - ./scripts/backup.sh:/backup.sh
+    networks:
+      - db-network
+    depends_on:
+      - postgres-master
+    command: >
+      sh -c "chmod +x /backup.sh && crond -f"
+    logging: *default-logging
+    profiles:
+      - backup
+
+# ==============================================================================
+# Volume Definitions
+# ==============================================================================
+
+volumes:
+  # Application volumes
+  nginx_cache:
+    driver: local
+
+  # Database volumes
+  postgres_master_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/data/postgres-master
+  postgres_slave_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/data/postgres-slave
+
+  # Redis volumes
+  redis_master_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/data/redis-master
+
+  # Monitoring volumes
+  prometheus_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/data/prometheus
+  grafana_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/data/grafana
+
+  # Logging volumes
+  elasticsearch_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/data/elasticsearch
+
+  # Backup volumes
+  backup_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /opt/astral-draft/backups
+
+# ==============================================================================
+# Network Configuration
+# ==============================================================================
+
+networks:
+  # External network for load balancer
+  web-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
+    labels:
+      com.astral-draft.description: "External web network"
+
+  # Internal application network
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24
+    internal: false
+    labels:
+      com.astral-draft.description: "Application network"
+
+  # Database network (more restricted)
+  db-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/24
+    internal: true
+    labels:
+      com.astral-draft.description: "Database network"
+
+  # Monitoring network
+  monitoring-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.24.0.0/24
+    labels:
+      com.astral-draft.description: "Monitoring network"
+
+  # Logging network
+  logging-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/24
+    labels:
+      com.astral-draft.description: "Logging network"

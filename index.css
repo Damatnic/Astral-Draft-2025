@@ -1,0 +1,79 @@
+/* Astral Draft - Core Styles */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-start-rgb: 2, 6, 23;
+  --background-end-rgb: 2, 6, 23;
+  --glow-color-1: rgba(16, 185, 129, 0.4);
+  --glow-color-2: rgba(37, 99, 235, 0.4);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --panel-bg: rgba(15, 23, 42, 0.4);
+  --panel-border: rgba(56, 189, 248, 0.2);
+}
+
+html.light {
+  --background-start-rgb: 241, 245, 249;
+  --background-end-rgb: 226, 232, 240;
+  --glow-color-1: rgba(16, 185, 129, 0.3);
+  --glow-color-2: rgba(37, 99, 235, 0.3);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --panel-bg: rgba(255, 255, 255, 0.5);
+  --panel-border: rgba(203, 213, 225, 1);
+}
+
+[data-theme="rivalry"] {
+  --glow-color-1: rgba(239, 68, 68, 0.5);
+  --panel-border: rgba(248, 113, 113, 0.3);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.font-display {
+  font-family: 'Exo 2', sans-serif;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Loading screen styles */
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(var(--background-start-rgb));
+  color: var(--text-primary);
+}
+
+/* Oracle interface optimizations */
+.oracle-glow {
+  filter: drop-shadow(0 0 20px var(--glow-color-1)) 
+          drop-shadow(0 0 40px var(--glow-color-2));
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+  
+  #root {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+}

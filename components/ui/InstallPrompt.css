@@ -1,0 +1,206 @@
+/* PWA Install Prompt Styles */
+
+.install-prompt {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  background: var(--color-surface-elevated, #ffffff);
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  .install-prompt {
+    bottom: 2rem;
+    left: auto;
+    right: 2rem;
+    width: 360px;
+    max-width: none;
+  }
+}
+
+.install-prompt__content {
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.install-prompt__icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary, #3b82f6);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.install-prompt__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.install-prompt__title {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary, #111827);
+}
+
+.install-prompt__description {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary, #6b7280);
+  line-height: 1.4;
+}
+
+.install-prompt__offline-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--color-warning-bg, #fef3c7);
+  color: var(--color-warning-text, #92400e);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.install-prompt__offline-icon {
+  font-size: 0.875rem;
+}
+
+.install-prompt__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .install-prompt__actions {
+    flex-direction: row;
+  }
+}
+
+/* PWA Status Banner Styles */
+
+.pwa-status-banner {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  z-index: 1001;
+  animation: slideDown 0.3s ease-out;
+}
+
+.pwa-status-banner--offline {
+  background: var(--color-warning-bg, #fef3c7);
+  color: var(--color-warning-text, #92400e);
+  border-color: var(--color-warning-border, #fbbf24);
+}
+
+.pwa-status-banner--online {
+  background: var(--color-success-bg, #dcfce7);
+  color: var(--color-success-text, #166534);
+  border-color: var(--color-success-border, #22c55e);
+}
+
+@media (min-width: 768px) {
+  .pwa-status-banner {
+    top: 2rem;
+    left: auto;
+    right: 2rem;
+    width: 320px;
+    max-width: none;
+  }
+}
+
+.pwa-status-banner__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.pwa-status-banner__icon {
+  font-size: 1rem;
+}
+
+/* Animations */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .install-prompt {
+    background: var(--color-surface-elevated, #1f2937);
+    border-color: var(--color-border, #374151);
+  }
+  
+  .install-prompt__title {
+    color: var(--color-text-primary, #f9fafb);
+  }
+  
+  .install-prompt__description {
+    color: var(--color-text-secondary, #d1d5db);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .install-prompt,
+  .pwa-status-banner {
+    animation: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .install-prompt {
+    border-width: 2px;
+  }
+  
+  .install-prompt__icon {
+    border: 2px solid currentColor;
+  }
+}

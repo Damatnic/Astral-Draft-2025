@@ -1,0 +1,89 @@
+{
+  "short_name": "Astral Draft",
+  "name": "Astral Draft - Elite Fantasy Football",
+  "description": "Advanced fantasy football draft assistant with AI-powered analytics and mobile-optimized interface",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "32x32 16x16",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml", 
+      "sizes": "192x192",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?utm_source=pwa",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#020617",
+  "background_color": "#020617",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["sports", "games", "productivity"],
+  "prefer_related_applications": false,
+  "display_override": ["window-controls-overlay", "standalone"],
+  "shortcuts": [
+    {
+      "name": "Draft Room",
+      "short_name": "Draft",
+      "description": "Join live draft room",
+      "url": "/?view=draft",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "short_name": "Analytics",
+      "description": "View player analytics",
+      "url": "/?view=analytics",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "My Team",
+      "short_name": "Team",
+      "description": "Manage your team",
+      "url": "/?view=team",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "192x192",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "screenshots": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "1280x720",
+      "type": "image/svg+xml",
+      "platform": "wide",
+      "label": "Astral Draft main interface"
+    },
+    {
+      "src": "/favicon.svg", 
+      "sizes": "750x1334",
+      "type": "image/svg+xml",
+      "platform": "narrow",
+      "label": "Mobile draft interface"
+    }
+  ]
+}

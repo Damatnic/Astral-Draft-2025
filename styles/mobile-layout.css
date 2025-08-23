@@ -1,0 +1,106 @@
+/**
+ * Mobile Layout Styles
+ * Additional styles for mobile layout component
+ */
+
+/* Safe area content spacing */
+.safe-area-content {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-content {
+  /* Optimize touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  touch-action: manipulation;
+  scroll-behavior: smooth;
+}
+
+/* Virtual keyboard handling */
+.keyboard-open {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.keyboard-open .safe-area-content {
+  padding-bottom: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-900 {
+    background-color: black !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+  .bg-gray-900 {
+    background-color: #0a0a0a;
+  }
+}
+
+/* Portrait orientation adjustments */
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .mobile-content {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+/* Prevent zoom on input focus (iOS) */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  font-size: 16px !important;
+}
+
+/* Improve tap targets */
+button,
+a,
+input,
+select,
+textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Better focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Optimize for notched devices */
+@supports (padding: max(0px)) {
+  .safe-area-content {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+}
+
+/* Safe area top for status bar */
+.safe-area-top {
+  background-color: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}

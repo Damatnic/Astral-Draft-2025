@@ -1,0 +1,644 @@
+/**
+ * Oracle Cache Dashboard Styles
+ * Professional styling for cache monitoring interface
+ */
+
+.oracle-cache-dashboard {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 24px;
+    color: white;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.oracle-cache-dashboard.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.dashboard-header h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.health-score {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.health-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4ade80, #22d3ee, #a855f7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.metric-card:hover::before {
+    opacity: 1;
+}
+
+.metric-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.metric-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(45deg, #fff, #e0e7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.metric-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Cache Operations */
+.cache-operations {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.operation-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.operation-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.btn-optimize,
+.btn-warm,
+.btn-clear {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-optimize {
+    background: linear-gradient(45deg, #10b981, #059669);
+    color: white;
+}
+
+.btn-optimize:hover:not(:disabled) {
+    background: linear-gradient(45deg, #059669, #047857);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+.btn-optimize:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-warm {
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+    color: white;
+}
+
+.btn-warm:hover:not(:disabled) {
+    background: linear-gradient(45deg, #d97706, #b45309);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+}
+
+.btn-clear {
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.btn-clear:hover {
+    background: linear-gradient(45deg, #dc2626, #b91c1c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+}
+
+.warm-cache-control,
+.clear-cache-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.user-input,
+.tags-select {
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+}
+
+.user-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.tags-select {
+    min-width: 160px;
+    max-height: 80px;
+}
+
+.tags-select option {
+    background: #1f2937;
+    color: white;
+}
+
+/* Optimization Results */
+.optimization-results {
+    background: linear-gradient(45deg, #22c55e, #16a34a);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.optimization-results h4 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.result-item span {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.result-item strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Top Items */
+.top-items {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-items h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.item-row:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+}
+
+.item-rank {
+    font-weight: 700;
+    font-size: 1.2rem;
+    width: 40px;
+    text-align: center;
+    color: #fbbf24;
+}
+
+.item-details {
+    flex: 1;
+    margin-left: 16px;
+}
+
+.item-key {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    word-break: break-all;
+}
+
+.item-stats {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.item-actions {
+    margin-left: 16px;
+}
+
+.btn-invalidate {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.btn-invalidate:hover {
+    background: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+}
+
+/* Cache Strategies */
+.cache-strategies {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cache-strategies h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.strategies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.strategy-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.strategy-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.strategy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.strategy-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.strategy-priority {
+    background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.strategy-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.strategy-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.strategy-row span:first-child {
+    opacity: 0.8;
+}
+
+.strategy-row span:last-child {
+    font-weight: 600;
+}
+
+/* Activity Log */
+.activity-log {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.activity-log h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.log-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.log-entry:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.log-time {
+    color: #94a3b8;
+    font-weight: 500;
+    min-width: 80px;
+}
+
+.log-action {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.log-action.hit {
+    background: #22c55e;
+    color: white;
+}
+
+.log-action.miss {
+    background: #f59e0b;
+    color: white;
+}
+
+.log-action.set {
+    background: #3b82f6;
+    color: white;
+}
+
+.log-key {
+    flex: 1;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    opacity: 0.8;
+    font-size: 0.8rem;
+    word-break: break-all;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .oracle-cache-dashboard {
+        padding: 16px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .operation-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .warm-cache-control,
+    .clear-cache-control {
+        width: 100%;
+    }
+
+    .strategies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .item-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .item-actions {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+    .oracle-cache-dashboard {
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    }
+
+    .user-input,
+    .tags-select {
+        background: rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Animation utilities */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility improvements */
+.oracle-cache-dashboard button:focus,
+.oracle-cache-dashboard input:focus,
+.oracle-cache-dashboard select:focus {
+    outline: 2px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.oracle-cache-dashboard button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .oracle-cache-dashboard {
+        background: #000;
+        color: #fff;
+    }
+
+    .metric-card,
+    .cache-operations,
+    .top-items,
+    .cache-strategies,
+    .activity-log {
+        background: #111;
+        border-color: #fff;
+    }
+}

@@ -1,0 +1,362 @@
+/* Mobile Focus Management Enhancement CSS */
+/* Improves focus visibility, tab order, and accessibility for mobile and keyboard users */
+
+/* Enhanced Focus Ring Styles */
+:focus {
+    outline: 3px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 4px !important;
+}
+
+:focus:not(:focus-visible) {
+    outline: none !important;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* Skip Links for Screen Readers */
+.skip-link {
+    position: absolute !important;
+    top: -40px !important;
+    left: 6px !important;
+    background: var(--bg-primary, #0f172a) !important;
+    color: var(--text-primary, #ffffff) !important;
+    padding: 8px 16px !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    z-index: 1000 !important;
+    font-weight: 600 !important;
+    border: 2px solid var(--accent-color, #06b6d4) !important;
+}
+
+.skip-link:focus {
+    top: 6px !important;
+}
+
+/* Interactive Element Focus Enhancement */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 4px !important;
+    box-shadow: 0 0 0 6px rgba(6, 182, 212, 0.15) !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Modal and Dialog Focus Management */
+[role="dialog"],
+[aria-modal="true"],
+dialog {
+    /* Ensure modals are properly announced */
+    isolation: isolate !important;
+}
+
+[role="dialog"]:focus-within,
+[aria-modal="true"]:focus-within,
+dialog:focus-within {
+    /* Highlight active modal container */
+    box-shadow: inset 0 0 0 2px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Focus Trap Styling */
+.focus-trap-boundary {
+    /* Visual indicator for focus trap boundaries in development */
+    position: relative !important;
+}
+
+.focus-trap-boundary::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: -2px !important;
+    border: 2px dashed rgba(6, 182, 212, 0.3) !important;
+    border-radius: 8px !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+    /* Hide in production */
+    display: none !important;
+}
+
+/* Development mode - show focus boundaries */
+[data-focus-debug="true"] .focus-trap-boundary::before {
+    display: block !important;
+}
+
+/* Tab Order Enhancement */
+/* Ensure logical tab order with proper z-index management */
+.tab-group {
+    /* Grouping related interactive elements */
+    position: relative !important;
+}
+
+.tab-group > :nth-child(1) { order: 1 !important; }
+.tab-group > :nth-child(2) { order: 2 !important; }
+.tab-group > :nth-child(3) { order: 3 !important; }
+.tab-group > :nth-child(4) { order: 4 !important; }
+.tab-group > :nth-child(5) { order: 5 !important; }
+
+/* Card and Panel Focus Enhancement */
+.focus-card:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1) !important;
+}
+
+/* Navigation Focus Enhancement */
+nav[role="navigation"] {
+    /* Ensure navigation is properly focusable */
+    position: relative !important;
+}
+
+nav[role="navigation"]:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 8px !important;
+}
+
+/* Mobile Navigation Focus */
+.mobile-nav:focus-within {
+    /* Enhanced focus for mobile navigation */
+    box-shadow: inset 0 0 0 3px rgba(6, 182, 212, 0.3) !important;
+}
+
+/* Form Focus Group Enhancement */
+fieldset:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 4px !important;
+    border-radius: 8px !important;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :focus-visible {
+        outline: 4px solid var(--accent-color, #06b6d4) !important;
+        outline-offset: 3px !important;
+        box-shadow: 0 0 0 8px rgba(6, 182, 212, 0.4) !important;
+    }
+    
+    button:focus-visible,
+    a:focus-visible {
+        background: var(--focus-bg, rgba(6, 182, 212, 0.2)) !important;
+        border: 2px solid var(--accent-color, #06b6d4) !important;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    :focus-visible {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .focus-trap-boundary::before {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Touch Target Focus Enhancement */
+.mobile-touch-target:focus-visible {
+    /* Enhanced focus for touch targets */
+    outline: 4px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 4px !important;
+    box-shadow: 0 0 0 8px rgba(6, 182, 212, 0.2) !important;
+}
+
+/* Icon Button Focus Enhancement */
+[aria-label]:focus-visible,
+[title]:focus-visible {
+    /* Enhanced focus for icon buttons and elements with labels */
+    outline: 3px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 3px !important;
+    background: rgba(6, 182, 212, 0.1) !important;
+    border-radius: 6px !important;
+}
+
+/* Dropdown and Menu Focus */
+[role="menu"]:focus-within,
+[role="menubar"]:focus-within,
+[role="listbox"]:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 6px !important;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.15) !important;
+}
+
+[role="menuitem"]:focus,
+[role="option"]:focus {
+    background: var(--focus-bg, rgba(6, 182, 212, 0.2)) !important;
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 1px !important;
+}
+
+/* Grid and List Focus Management */
+[role="grid"]:focus-within,
+[role="listbox"]:focus-within,
+[role="tree"]:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 8px !important;
+}
+
+[role="gridcell"]:focus,
+[role="option"]:focus,
+[role="treeitem"]:focus {
+    background: var(--focus-bg, rgba(6, 182, 212, 0.15)) !important;
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 1px !important;
+    border-radius: 4px !important;
+}
+
+/* Tab Panel Focus Management */
+[role="tabpanel"]:focus {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 4px !important;
+    border-radius: 8px !important;
+}
+
+[role="tab"]:focus {
+    outline: 3px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    background: var(--focus-bg, rgba(6, 182, 212, 0.1)) !important;
+    border-radius: 6px !important;
+}
+
+/* Search and Filter Focus */
+[role="search"]:focus-within,
+[role="searchbox"]:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1) !important;
+}
+
+/* Disabled Element Focus Prevention */
+[disabled]:focus,
+[aria-disabled="true"]:focus,
+.disabled:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Error State Focus Enhancement */
+[aria-invalid="true"]:focus-visible {
+    outline: 3px solid #ef4444 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Success State Focus Enhancement */
+[aria-invalid="false"]:focus-visible,
+.success:focus-visible {
+    outline: 3px solid #10b981 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Focus Management for Complex Widgets */
+.widget-container:focus-within {
+    outline: 2px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1) !important;
+}
+
+/* Keyboard Navigation Indicators */
+.keyboard-nav-active {
+    /* Applied when keyboard navigation is detected */
+    outline-style: solid !important;
+}
+
+.keyboard-nav-active *:focus {
+    outline: 3px solid var(--accent-color, #06b6d4) !important;
+    outline-offset: 2px !important;
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Focus Restoration Indicator */
+.focus-restore-target {
+    /* Temporary highlight for restored focus */
+    animation: focus-restore 0.3s ease-in-out !important;
+}
+
+@keyframes focus-restore {
+    0% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7) !important;
+    }
+    100% {
+        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0) !important;
+    }
+}
+
+/* Mobile-specific Focus Enhancements */
+@media (max-width: 768px) {
+    /* Larger focus indicators on mobile */
+    :focus-visible {
+        outline: 4px solid var(--accent-color, #06b6d4) !important;
+        outline-offset: 3px !important;
+        box-shadow: 0 0 0 8px rgba(6, 182, 212, 0.2) !important;
+    }
+    
+    .mobile-touch-target:focus-visible {
+        outline: 5px solid var(--accent-color, #06b6d4) !important;
+        outline-offset: 5px !important;
+        box-shadow: 0 0 0 10px rgba(6, 182, 212, 0.3) !important;
+    }
+    
+    /* Enhanced focus for mobile buttons */
+    button:focus-visible {
+        outline: 4px solid var(--accent-color, #06b6d4) !important;
+        outline-offset: 4px !important;
+        background: rgba(6, 182, 212, 0.15) !important;
+        transform: scale(1.02) !important;
+    }
+}
+
+/* Dark Theme Focus Adjustments */
+@media (prefers-color-scheme: dark) {
+    :focus-visible {
+        outline-color: #38bdf8 !important;
+        box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.3) !important;
+    }
+    
+    .focus-card:focus-within {
+        outline-color: #38bdf8 !important;
+        box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2) !important;
+    }
+}
+
+/* Light Theme Focus Adjustments */
+@media (prefers-color-scheme: light) {
+    :focus-visible {
+        outline-color: #0891b2 !important;
+        box-shadow: 0 0 0 6px rgba(8, 145, 178, 0.3) !important;
+    }
+    
+    .focus-card:focus-within {
+        outline-color: #0891b2 !important;
+        box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.2) !important;
+    }
+}

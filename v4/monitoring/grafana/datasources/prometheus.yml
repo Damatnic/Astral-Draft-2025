@@ -1,0 +1,162 @@
+# ==============================================================================
+# Astral Draft v4 - Grafana Datasource Configuration
+# ==============================================================================
+# This configuration sets up Prometheus as a datasource for Grafana with
+# proper authentication and optimization for production monitoring.
+# ==============================================================================
+
+apiVersion: 1
+
+# List of datasources to insert/update
+datasources:
+  # Primary Prometheus datasource
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+    
+    # Basic settings
+    editable: false
+    version: 1
+    
+    # Authentication (if required)
+    # basicAuth: true
+    # basicAuthUser: prometheus
+    # secureJsonData:
+    #   basicAuthPassword: your-password
+    
+    # JSON data for additional configuration
+    jsonData:
+      # HTTP method for queries
+      httpMethod: POST
+      
+      # Query timeout
+      timeInterval: 15s
+      
+      # Enable query logging
+      queryTimeout: 60s
+      
+      # Custom headers
+      customQueryParameters: ''
+      
+      # Exemplars configuration
+      exemplarTraceIdDestinations:
+        - name: TraceID
+          datasourceUid: jaeger
+          url: 'http://jaeger:16686/trace/${__value.raw}'
+    
+    # UID for referencing this datasource
+    uid: prometheus-astral-draft
+
+  # Prometheus for Alerting (if separate instance)
+  - name: Prometheus-Alerting
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: false
+    editable: false
+    version: 1
+    
+    jsonData:
+      httpMethod: POST
+      timeInterval: 15s
+      queryTimeout: 60s
+      
+    uid: prometheus-alerting
+
+  # Loki for Log Aggregation (if available)
+  - name: Loki
+    type: loki
+    access: proxy
+    url: http://loki:3100
+    isDefault: false
+    editable: false
+    version: 1
+    
+    jsonData:
+      derivedFields:
+        - datasourceUid: jaeger
+          matcherRegex: (?:traceID|trace_id)=(\w+)
+          name: TraceID
+          url: '${__value.raw}'
+        - datasourceUid: prometheus-astral-draft
+          matcherRegex: (?:user_id)=(\w+)
+          name: UserID
+          url: '/d/user-dashboard?var-user_id=${__value.raw}'
+    
+    uid: loki-astral-draft
+
+  # Jaeger for Distributed Tracing (if available)
+  - name: Jaeger
+    type: jaeger
+    access: proxy
+    url: http://jaeger:16686
+    isDefault: false
+    editable: false
+    version: 1
+    
+    jsonData:
+      tracesToLogs:
+        datasourceUid: loki-astral-draft
+        tags: ['job', 'instance', 'pod', 'namespace']
+        mappedTags: [{ key: 'service.name', value: 'service' }]
+        mapTagNamesEnabled: true
+        spanStartTimeShift: '-1h'
+        spanEndTimeShift: '1h'
+        filterByTraceID: true
+        filterBySpanID: false
+      
+      nodeGraph:
+        enabled: true
+      
+    uid: jaeger-astral-draft
+
+  # PostgreSQL datasource for business intelligence
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: postgres-master:5432
+    database: astral_draft_v4
+    user: grafana_readonly
+    isDefault: false
+    editable: false
+    version: 1
+    
+    # Secure connection data
+    secureJsonData:
+      password: ${GRAFANA_DB_PASSWORD}
+    
+    jsonData:
+      sslmode: require
+      maxOpenConns: 10
+      maxIdleConns: 5
+      connMaxLifetime: 14400
+      postgresVersion: 1500
+      timescaledb: false
+    
+    uid: postgres-astral-draft
+
+  # Redis datasource for cache monitoring
+  - name: Redis
+    type: redis-datasource
+    access: proxy
+    url: redis://redis-cluster:6379
+    isDefault: false
+    editable: false
+    version: 1
+    
+    jsonData:
+      poolSize: 5
+      timeout: 10
+      pingInterval: 0
+      pipelineWindow: 0
+    
+    uid: redis-astral-draft
+
+# ==============================================================================
+# Notification Channels Configuration
+# ==============================================================================
+
+# Note: This section is for legacy alerting. 
+# For unified alerting, configure through the Grafana UI or separate files.

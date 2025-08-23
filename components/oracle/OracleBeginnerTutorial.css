@@ -1,0 +1,970 @@
+/* Oracle Beginner Tutorial Styles */
+.oracle-beginner-tutorial {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
+
+.tutorial-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 1.5rem;
+}
+
+.progress-section {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    color: #64748b;
+    text-align: center;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.step-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #64748b;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.step-dot.completed {
+    background-color: #10b981;
+    border-color: #10b981;
+    color: white;
+}
+
+.step-dot.current {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+    transform: scale(1.1);
+}
+
+.tutorial-content {
+    margin-bottom: 2rem;
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.step-visual {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.step-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.step-content {
+    background-color: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+/* Tutorial Content Styles */
+.tutorial-welcome h3 {
+    color: #1e293b;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature h4 {
+    color: #3b82f6;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feature li {
+    padding: 0.25rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.feature li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* Oracle Features */
+.oracle-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h4 {
+    color: #1e293b;
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.oracle-stats {
+    background: #eff6ff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-left: 4px solid #3b82f6;
+}
+
+.oracle-stats h4 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+
+/* Fantasy Basics */
+.positions-guide {
+    margin: 2rem 0;
+}
+
+.position-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.position {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.position h5 {
+    color: #dc2626;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+}
+
+.factors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.factor {
+    background: white;
+    border-radius: 6px;
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    font-size: 0.875rem;
+}
+
+/* Prediction Categories */
+.prediction-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.category {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+}
+
+.category h4 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.example {
+    background: #f1f5f9;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    border-left: 3px solid #64748b;
+}
+
+/* Confidence Levels */
+.confidence-scale {
+    margin: 2rem 0;
+}
+
+.confidence-levels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.level {
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid;
+}
+
+.level.high-confidence {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+}
+
+.level.medium-confidence {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+}
+
+.level.low-confidence {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+}
+
+.level.very-low-confidence {
+    background: #f8fafc;
+    border-left-color: #64748b;
+}
+
+.level h5 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.strategy-tips {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.tip {
+    background: #eff6ff;
+    border-radius: 6px;
+    padding: 1rem;
+    border-left: 3px solid #3b82f6;
+}
+
+/* Reading Guide */
+.prediction-example {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    margin: 1rem 0;
+}
+
+.mock-prediction {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fafafa;
+}
+
+.options-display {
+    margin: 1rem 0;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+.option.winner {
+    border-color: #10b981;
+    background: #ecfdf5;
+}
+
+.choice {
+    font-weight: 500;
+}
+
+.percentage {
+    font-weight: 600;
+    color: #3b82f6;
+}
+
+.supporting-data {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+.oracle-analysis {
+    background: #f1f5f9;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-left: 3px solid #3b82f6;
+}
+
+.breakdown-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.section h5 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+/* Beating Strategies */
+.strategy-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.strategy-category {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.advantages {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.advantage {
+    border-left: 4px solid #10b981;
+    padding-left: 1rem;
+}
+
+.advantage h5 {
+    color: #059669;
+    margin-bottom: 0.5rem;
+}
+
+.strategies {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.strategy {
+    border-left: 4px solid #3b82f6;
+    padding-left: 1rem;
+}
+
+.strategy h5 {
+    color: #1d4ed8;
+    margin-bottom: 0.5rem;
+}
+
+.strategy-example {
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.avoid-scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.avoid {
+    background: #fef2f2;
+    border-radius: 6px;
+    padding: 1rem;
+    border-left: 3px solid #ef4444;
+}
+
+.avoid h5 {
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+/* Getting Started */
+.action-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.step {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #3b82f6;
+}
+
+.step h4 {
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.tips {
+    background: #eff6ff;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.success-metrics {
+    margin: 2rem 0;
+}
+
+.milestones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.milestone {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.milestone h5 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.final-tips {
+    background: #eff6ff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid #3b82f6;
+}
+
+.final-tips h4 {
+    color: #1d4ed8;
+    margin-bottom: 1rem;
+}
+
+/* Quiz Section */
+.quiz-section {
+    background: #fef7ff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid #e879f9;
+}
+
+.quiz-section h4 {
+    color: #a21caf;
+    margin-bottom: 1rem;
+}
+
+.quiz-question {
+    margin-top: 1rem;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.quiz-option {
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.quiz-option:hover {
+    border-color: #a21caf;
+    background: #fdf4ff;
+}
+
+.quiz-option.selected {
+    border-color: #a21caf;
+    background: #fdf4ff;
+    box-shadow: 0 0 0 3px rgba(162, 28, 175, 0.1);
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.submit-quiz-button {
+    background: #a21caf;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.submit-quiz-button:hover {
+    background: #86198f;
+}
+
+.quiz-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid;
+}
+
+.quiz-result.correct {
+    background: #ecfdf5;
+    border-left-color: #10b981;
+}
+
+.quiz-result.incorrect {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+}
+
+.result-header {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.result-explanation {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Practice Section */
+.practice-section {
+    background: #f0fdf4;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border: 1px solid #10b981;
+}
+
+.practice-section h4 {
+    color: #059669;
+    margin-bottom: 1rem;
+}
+
+.practice-scenario {
+    margin-top: 1rem;
+}
+
+.practice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.practice-option {
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.practice-option:hover {
+    border-color: #059669;
+    background: #f0fdf4;
+}
+
+.practice-option.selected {
+    border-color: #059669;
+    background: #f0fdf4;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.practice-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.practice-input textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.practice-input textarea:focus {
+    outline: none;
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.submit-practice-button {
+    background: #059669;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.submit-practice-button:hover:not(:disabled) {
+    background: #047857;
+}
+
+.submit-practice-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.practice-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    background: #f0fdf4;
+    border-left: 4px solid #10b981;
+}
+
+.practice-result .result {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.practice-result .result.correct {
+    color: #059669;
+}
+
+.practice-result .result.incorrect {
+    color: #dc2626;
+}
+
+.reasoning-feedback .score {
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #059669;
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation */
+.tutorial-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.nav-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.prev-button {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.prev-button:hover:not(:disabled) {
+    background: #e2e8f0;
+}
+
+.prev-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.next-button {
+    background: #3b82f6;
+    color: white;
+}
+
+.next-button:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+.next-button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Tutorial Complete */
+.oracle-tutorial-complete {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.completion-celebration {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.celebration-header h2 {
+    font-size: 2.5rem;
+    color: #059669;
+    margin-bottom: 0.5rem;
+}
+
+.celebration-header h3 {
+    font-size: 1.5rem;
+    color: #374151;
+    margin-bottom: 2rem;
+}
+
+.completion-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.next-steps {
+    margin: 3rem 0;
+}
+
+.next-steps h4 {
+    font-size: 1.25rem;
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.next-step-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.primary-button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 200px;
+}
+
+.primary-button:hover {
+    background: #2563eb;
+}
+
+.secondary-button {
+    background: white;
+    color: #374151;
+    border: 2px solid #e2e8f0;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 180px;
+}
+
+.secondary-button:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.875rem;
+    margin-top: 2rem;
+}
+
+.text-button:hover {
+    color: #374151;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .oracle-beginner-tutorial {
+        padding: 1rem;
+    }
+    
+    .feature-highlights {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .oracle-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .position-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .factors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .milestones {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-indicator {
+        gap: 0.5rem;
+    }
+    
+    .step-dot {
+        width: 35px;
+        height: 35px;
+        font-size: 0.75rem;
+    }
+    
+    .step-visual {
+        font-size: 3rem;
+    }
+    
+    .step-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .next-step-options {
+        gap: 0.75rem;
+    }
+    
+    .primary-button,
+    .secondary-button {
+        min-width: auto;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .oracle-beginner-tutorial {
+        padding: 0.5rem;
+    }
+    
+    .step-content {
+        padding: 1rem;
+    }
+    
+    .tutorial-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-button {
+        width: 100%;
+        max-width: 200px;
+    }
+}

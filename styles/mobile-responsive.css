@@ -1,0 +1,720 @@
+/**
+ * Mobile Responsiveness CSS Fixes
+ * Critical mobile improvements for touch targets, forms, and usability
+ */
+
+/* Touch Target Improvements */
+.mobile-touch-target {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 8px !important;
+}
+
+/* Icon Button Touch Targets */
+.icon-button,
+.btn-icon,
+button[class*="icon"],
+button:has(svg),
+button:has(.icon) {
+  min-width: 44px !important;
+  min-height: 44px !important;
+  padding: 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Navigation Touch Targets */
+.nav-button,
+.navigation-item,
+.menu-toggle,
+.hamburger-menu {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px;
+}
+
+/* Form Input Improvements */
+input,
+textarea,
+select {
+  min-height: 44px !important;
+  padding: 12px 16px !important;
+  font-size: 16px; /* Prevents zoom on iOS */
+  border-radius: 8px;
+}
+
+/* Specific form element overrides */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+  min-height: 44px !important;
+  padding: 12px 16px !important;
+}
+
+/* Checkbox and radio specific sizing */
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  transform: scale(1.5);
+}
+
+/* Specific input type optimizations */
+input[type="email"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+}
+
+input[type="tel"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+}
+
+input[type="number"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 8px;
+}
+
+/* Button Improvements */
+.btn-primary,
+.primary-button {
+  min-height: 44px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-secondary,
+.secondary-button {
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Ensure all buttons meet touch target requirements */
+button:not(.no-touch-target) {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Force touch targets for specific button types */
+button[type="submit"],
+button[type="button"],
+.btn,
+.button {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 16px !important;
+}
+
+/* Mobile-specific responsive breakpoints */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .header {
+    padding: 12px 16px;
+    flex-wrap: wrap;
+  }
+  
+  .header h1 {
+    font-size: 18px;
+  }
+  
+  /* Dashboard grid adjustments */
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  /* Widget adjustments */
+  .widget {
+    min-height: auto;
+    padding: 16px;
+  }
+  
+  .widget-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  /* Navigation improvements */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 100;
+    padding: 20px;
+  }
+  
+  .mobile-nav-item {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    margin: 8px 0;
+    text-align: left;
+    font-size: 18px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+  }
+  
+  /* Form improvements */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+  }
+  
+  .form-input {
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .form-input:focus {
+    border-color: var(--accent-color, #00ff88);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.2);
+  }
+  
+  /* Modal improvements */
+  .modal {
+    margin: 20px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+  
+  .modal-header {
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 16px 20px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+  
+  .modal-footer button {
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* Oracle interface improvements */
+  .oracle-prediction-option {
+    min-height: 48px;
+    padding: 16px 20px;
+    margin: 8px 0;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .oracle-prediction-option:hover,
+  .oracle-prediction-option:focus {
+    border-color: var(--accent-color, #00ff88);
+    background: rgba(0, 255, 136, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .oracle-prediction-option.selected {
+    border-color: var(--accent-color, #00ff88);
+    background: rgba(0, 255, 136, 0.2);
+  }
+
+  /* Training Data Manager Mobile Optimizations */
+  .training-data-manager {
+    padding: 12px;
+  }
+
+  .training-data-manager .widget {
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+
+  .training-data-manager .grid {
+    gap: 12px;
+  }
+
+  .training-data-manager .grid-cols-2 {
+    gap: 8px;
+  }
+
+  .training-data-manager .text-2xl {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  .training-data-manager .text-xl {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  /* Tab navigation mobile improvements */
+  .mobile-tab-nav {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .mobile-tab-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-tab-nav button {
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+
+  /* Training progress bars mobile */
+  .training-progress-mobile {
+    min-height: 20px;
+    border-radius: 10px;
+  }
+
+  /* Widget responsive content */
+  .widget-mobile-responsive {
+    min-height: auto;
+  }
+
+  .widget-mobile-responsive .flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .widget-mobile-responsive .flex.sm\:flex-row {
+    flex-direction: column;
+  }
+
+  @media (min-width: 640px) {
+    .widget-mobile-responsive .flex.sm\:flex-row {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  /* Mobile-specific button optimizations */
+  .training-action-button {
+    min-height: 48px;
+    padding: 12px 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  @media (min-width: 640px) {
+    .training-action-button {
+      width: auto;
+    }
+  }
+
+  /* Configuration form mobile optimization */
+  .config-form-mobile input,
+  .config-form-mobile select {
+    min-height: 48px;
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+
+  .config-form-mobile .form-group {
+    margin-bottom: 20px;
+  }
+
+  /* Dataset grid mobile optimization */
+  .dataset-grid-mobile {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 768px) {
+    .dataset-grid-mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dataset-grid-mobile {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Performance metrics mobile layout */
+  .performance-metrics-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .performance-metrics-mobile .metric-card {
+    text-align: center;
+    padding: 16px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  }
+
+  @media (min-width: 640px) {
+    .performance-metrics-mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .performance-metrics-mobile {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* A/B Testing mobile cards */
+  .ab-test-card-mobile {
+    padding: 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .ab-test-card-mobile .test-models {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  @media (min-width: 640px) {
+    .ab-test-card-mobile .test-models {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .ab-test-card-mobile .test-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+
+  /* Validation results mobile */
+  .validation-results-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 768px) {
+    .validation-results-mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .validation-result-card {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Training history mobile */
+  .training-history-mobile .session-card {
+    padding: 16px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .training-history-mobile .session-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 640px) {
+    .training-history-mobile .session-metrics {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* System resources mobile */
+  .system-resources-mobile .resource-item {
+    margin-bottom: 16px;
+  }
+
+  .system-resources-mobile .resource-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  /* Scrollbar hide utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Min width fit utility */
+  .min-width-fit {
+    min-width: fit-content;
+  }
+  
+  .confidence-slider {
+    width: 100%;
+    height: 48px;
+    margin: 20px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    outline: none;
+  }
+  
+  .confidence-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background: var(--accent-color, #00ff88);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+  }
+  
+  .confidence-slider::-moz-range-thumb {
+    width: 32px;
+    height: 32px;
+    background: var(--accent-color, #00ff88);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+  }
+  
+  /* Draft interface improvements */
+  .player-card {
+    min-height: 80px;
+    padding: 16px;
+    margin: 8px 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .player-card-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .player-card-position {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+  }
+  
+  .player-card-stats {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+  }
+  
+  .draft-button {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    background: var(--accent-color, #00ff88);
+    color: black;
+    border: none;
+    margin-top: 12px;
+  }
+  
+  .queue-control {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Typography improvements */
+  .body-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .small-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .heading-1 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+  
+  .heading-2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+  
+  .heading-3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  
+  /* Utility classes for mobile */
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-padding {
+    padding: 16px !important;
+  }
+  
+  .mobile-margin {
+    margin: 16px !important;
+  }
+}
+
+/* Extra small screens (iPhone SE and similar) */
+@media (max-width: 375px) {
+  .dashboard-grid {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .widget {
+    padding: 12px;
+  }
+  
+  .modal {
+    margin: 12px;
+    max-width: calc(100vw - 24px);
+  }
+  
+  .form-input {
+    padding: 12px 14px;
+  }
+  
+  .heading-1 {
+    font-size: 24px;
+  }
+  
+  .heading-2 {
+    font-size: 20px;
+  }
+}
+
+/* Large screens - ensure nothing breaks */
+@media (min-width: 1024px) {
+  .mobile-touch-target {
+    min-width: auto !important;
+    min-height: auto !important;
+    padding: initial !important;
+  }
+  
+  .mobile-hidden {
+    display: initial;
+  }
+}
+
+/* Focus improvements for accessibility */
+*:focus {
+  outline: 2px solid var(--accent-color, #00ff88);
+  outline-offset: 2px;
+}
+
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--accent-color, #00ff88);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .widget,
+  .player-card,
+  .oracle-prediction-option {
+    border-width: 2px;
+    border-color: white;
+  }
+  
+  button {
+    border: 2px solid white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

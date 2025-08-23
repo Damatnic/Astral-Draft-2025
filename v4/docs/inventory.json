@@ -1,0 +1,582 @@
+{
+  "metadata": {
+    "generated": "2025-08-19",
+    "version": "1.0.0",
+    "description": "Astral Draft v4 Feature Inventory - Machine Readable Format",
+    "totalFeatures": 50,
+    "totalComponents": 300,
+    "totalServices": 70,
+    "totalViews": 50,
+    "totalApiEndpoints": 45
+  },
+  "features": [
+    {
+      "id": "league-management",
+      "name": "League Management",
+      "priority": "P0",
+      "category": "core",
+      "description": "Complete league creation, configuration, and administration",
+      "components": [
+        "LeagueCreationWizard",
+        "EnhancedCreateLeagueModal",
+        "EditLeagueSettingsView",
+        "CommissionerToolsView",
+        "LeagueSettingsEditor",
+        "MemberManagementWidget"
+      ],
+      "apiEndpoints": [
+        "GET /api/leagues",
+        "POST /api/leagues",
+        "PUT /api/leagues/:id",
+        "POST /api/leagues/:id/join",
+        "POST /api/leagues/:id/invite"
+      ],
+      "testCoverage": 85,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "draft-system",
+      "name": "Draft System",
+      "priority": "P0",
+      "category": "core",
+      "description": "Real-time drafting with multiple formats and AI assistance",
+      "components": [
+        "DraftRoom",
+        "EnhancedSnakeDraftRoom",
+        "AuctionPanel",
+        "DraftBoard",
+        "AiCoPilotPanel",
+        "MockDraftModal",
+        "DraftPreparationInterface"
+      ],
+      "apiEndpoints": [
+        "GET /api/draft/:id",
+        "POST /api/draft/:id/pick",
+        "POST /api/draft/:id/bid",
+        "GET /api/draft/:id/recommendations"
+      ],
+      "testCoverage": 90,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "team-management",
+      "name": "Team Management",
+      "priority": "P0",
+      "category": "core",
+      "description": "Roster management, lineups, and team operations",
+      "components": [
+        "EnhancedRosterManager",
+        "LineupOptimizer",
+        "StartSitWidget",
+        "WaiverWireView",
+        "TradeCenter",
+        "InjuryDashboard"
+      ],
+      "apiEndpoints": [
+        "GET /api/teams/:id/roster",
+        "PUT /api/teams/:id/lineup",
+        "POST /api/teams/:id/waiver-claim",
+        "POST /api/teams/:id/trade-offer"
+      ],
+      "testCoverage": 88,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "oracle-system",
+      "name": "Oracle Prediction System",
+      "priority": "P0",
+      "category": "ai",
+      "description": "AI-powered predictions and user competition platform",
+      "components": [
+        "BeatTheOracleView",
+        "OracleAnalyticsDashboard",
+        "OracleRealTimePredictionInterface",
+        "OracleLeaderboard",
+        "MLAnalyticsDashboard",
+        "EnsembleMLWidget"
+      ],
+      "apiEndpoints": [
+        "GET /api/oracle/predictions",
+        "POST /api/oracle/predictions",
+        "GET /api/oracle/leaderboard",
+        "GET /api/oracle/accuracy"
+      ],
+      "testCoverage": 82,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "matchup-system",
+      "name": "Matchup System",
+      "priority": "P0",
+      "category": "core",
+      "description": "Weekly matchups, scoring, and playoff management",
+      "components": [
+        "MatchupView",
+        "MatchupScoreboard",
+        "PlayoffBracketView",
+        "PowerRankingsView",
+        "ChampionshipOddsView",
+        "LiveEventTicker"
+      ],
+      "apiEndpoints": [
+        "GET /api/matchups/:leagueId/:week",
+        "GET /api/scores/live",
+        "GET /api/playoffs/:leagueId",
+        "GET /api/standings/:leagueId"
+      ],
+      "testCoverage": 87,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "analytics-hub",
+      "name": "Advanced Analytics",
+      "priority": "P1",
+      "category": "analytics",
+      "description": "Comprehensive performance and trend analysis",
+      "components": [
+        "AnalyticsHubView",
+        "RealTimeAnalyticsView",
+        "PerformanceTrendsView",
+        "PlayerComparisonTool",
+        "TeamAnalyticsDashboard",
+        "HistoricalAnalyticsOverview"
+      ],
+      "apiEndpoints": [
+        "GET /api/analytics/performance",
+        "GET /api/analytics/trends",
+        "GET /api/analytics/player-comparison",
+        "GET /api/analytics/championship-odds"
+      ],
+      "testCoverage": 75,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "social-hub",
+      "name": "Social Features",
+      "priority": "P1",
+      "category": "social",
+      "description": "Communication, rivalry tracking, and social interactions",
+      "components": [
+        "SocialHub",
+        "ChatPanel",
+        "MessagesView",
+        "TradeNegotiationChat",
+        "RivalryWidget",
+        "SideBetsWidget"
+      ],
+      "apiEndpoints": [
+        "GET /api/social/messages",
+        "POST /api/social/messages",
+        "GET /api/social/feed",
+        "POST /api/social/reactions"
+      ],
+      "testCoverage": 80,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "content-generation",
+      "name": "Content Generation",
+      "priority": "P1",
+      "category": "ai",
+      "description": "AI-generated reports, stories, and league content",
+      "components": [
+        "WeeklyReportView",
+        "SeasonReviewView",
+        "LeagueNewspaperView",
+        "DraftStoryView",
+        "SeasonStoryView",
+        "RecapVideoPlayer"
+      ],
+      "apiEndpoints": [
+        "GET /api/content/weekly-report/:leagueId/:week",
+        "GET /api/content/season-review/:leagueId",
+        "GET /api/content/newspaper/:leagueId/:week"
+      ],
+      "testCoverage": 70,
+      "mobileSupport": true,
+      "desktopSupport": true
+    },
+    {
+      "id": "mobile-optimization",
+      "name": "Mobile Optimization",
+      "priority": "P1",
+      "category": "mobile",
+      "description": "Mobile-first design with PWA capabilities",
+      "components": [
+        "MobileLayoutWrapper",
+        "MobileBottomNavigation",
+        "MobileDraftInterface",
+        "PWAInstallPrompt",
+        "MobileOfflineIndicator",
+        "MobilePullToRefresh"
+      ],
+      "apiEndpoints": [],
+      "testCoverage": 85,
+      "mobileSupport": true,
+      "desktopSupport": false
+    },
+    {
+      "id": "accessibility",
+      "name": "Accessibility Features",
+      "priority": "P1",
+      "category": "accessibility",
+      "description": "WCAG 2.1 AA compliance and inclusive design",
+      "components": [
+        "AccessibleButton",
+        "AccessibleModal",
+        "AccessibilityDashboard",
+        "AccessibleMobileComponents"
+      ],
+      "apiEndpoints": [],
+      "testCoverage": 90,
+      "mobileSupport": true,
+      "desktopSupport": true
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "view": "DASHBOARD",
+      "component": "ModernDashboardView",
+      "description": "Main user dashboard",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/league/:id",
+      "view": "LEAGUE_HUB",
+      "component": "LeagueHubView",
+      "description": "League homepage",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/team/:id",
+      "view": "TEAM_HUB",
+      "component": "TeamHubView",
+      "description": "Team management center",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/draft/:id",
+      "view": "DRAFT_ROOM",
+      "component": "DraftRoomView",
+      "description": "Live draft interface",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/oracle",
+      "view": "BEAT_THE_ORACLE",
+      "component": "BeatTheOracleView",
+      "description": "Oracle prediction competition",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/analytics",
+      "view": "ANALYTICS_HUB",
+      "component": "AnalyticsHubView",
+      "description": "Analytics dashboard",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/matchup/:id",
+      "view": "MATCHUP",
+      "component": "MatchupView",
+      "description": "Weekly matchup details",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/standings/:leagueId",
+      "view": "LEAGUE_STANDINGS",
+      "component": "LeagueStandingsView",
+      "description": "League standings",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/waiver-wire/:leagueId",
+      "view": "WAIVER_WIRE",
+      "component": "WaiverWireView",
+      "description": "Free agent marketplace",
+      "authRequired": true,
+      "mobileOptimized": true
+    },
+    {
+      "path": "/power-rankings/:leagueId",
+      "view": "POWER_RANKINGS",
+      "component": "PowerRankingsView",
+      "description": "Team power rankings",
+      "authRequired": true,
+      "mobileOptimized": true
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/auth/profile",
+      "description": "Get user profile",
+      "authRequired": true,
+      "rateLimit": "100/hour"
+    },
+    {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "description": "User authentication",
+      "authRequired": false,
+      "rateLimit": "5/minute"
+    },
+    {
+      "method": "GET",
+      "path": "/api/leagues",
+      "description": "Get user leagues",
+      "authRequired": true,
+      "rateLimit": "100/hour"
+    },
+    {
+      "method": "POST",
+      "path": "/api/leagues",
+      "description": "Create new league",
+      "authRequired": true,
+      "rateLimit": "10/hour"
+    },
+    {
+      "method": "GET",
+      "path": "/api/oracle/predictions",
+      "description": "Get Oracle predictions",
+      "authRequired": true,
+      "rateLimit": "60/hour"
+    },
+    {
+      "method": "POST",
+      "path": "/api/oracle/predictions",
+      "description": "Submit user prediction",
+      "authRequired": true,
+      "rateLimit": "30/hour"
+    },
+    {
+      "method": "GET",
+      "path": "/api/analytics/performance",
+      "description": "Get performance analytics",
+      "authRequired": true,
+      "rateLimit": "100/hour"
+    },
+    {
+      "method": "GET",
+      "path": "/api/scores/live",
+      "description": "Get live game scores",
+      "authRequired": true,
+      "rateLimit": "200/hour"
+    }
+  ],
+  "components": [
+    {
+      "name": "MainLayout",
+      "category": "layout",
+      "description": "Primary application layout",
+      "dependencies": ["Header", "Navigation", "ErrorBoundary"],
+      "mobileOptimized": true
+    },
+    {
+      "name": "DraftRoom",
+      "category": "draft",
+      "description": "Live draft interface",
+      "dependencies": ["DraftBoard", "PlayerPool", "AiCoPilotPanel"],
+      "mobileOptimized": true
+    },
+    {
+      "name": "OracleAnalyticsDashboard",
+      "category": "oracle",
+      "description": "Oracle prediction analytics",
+      "dependencies": ["PredictionCard", "UserStatsWidget", "RealtimeUpdatesWidget"],
+      "mobileOptimized": true
+    },
+    {
+      "name": "PlayerDetailModal",
+      "category": "player",
+      "description": "Comprehensive player information",
+      "dependencies": ["PlayerCard", "StatChart", "NewsAndUpdatesTab"],
+      "mobileOptimized": true
+    },
+    {
+      "name": "MobileLayoutWrapper",
+      "category": "mobile",
+      "description": "Mobile-specific layout wrapper",
+      "dependencies": ["MobileBottomNavigation", "MobileOfflineIndicator"],
+      "mobileOptimized": true
+    }
+  ],
+  "models": [
+    {
+      "name": "User",
+      "description": "User account and profile",
+      "fields": [
+        {"name": "id", "type": "string", "required": true},
+        {"name": "name", "type": "string", "required": true},
+        {"name": "email", "type": "string", "required": true},
+        {"name": "avatar", "type": "string", "required": false},
+        {"name": "persona", "type": "Persona", "required": false},
+        {"name": "badges", "type": "Badge[]", "required": false}
+      ]
+    },
+    {
+      "name": "League",
+      "description": "Fantasy football league",
+      "fields": [
+        {"name": "id", "type": "string", "required": true},
+        {"name": "name", "type": "string", "required": true},
+        {"name": "settings", "type": "LeagueSettings", "required": true},
+        {"name": "status", "type": "LeagueStatus", "required": true},
+        {"name": "members", "type": "User[]", "required": true},
+        {"name": "teams", "type": "Team[]", "required": true}
+      ]
+    },
+    {
+      "name": "Player",
+      "description": "NFL player",
+      "fields": [
+        {"name": "id", "type": "number", "required": true},
+        {"name": "name", "type": "string", "required": true},
+        {"name": "position", "type": "PlayerPosition", "required": true},
+        {"name": "team", "type": "string", "required": true},
+        {"name": "stats", "type": "PlayerStats", "required": true}
+      ]
+    },
+    {
+      "name": "Team",
+      "description": "Fantasy team",
+      "fields": [
+        {"name": "id", "type": "number", "required": true},
+        {"name": "name", "type": "string", "required": true},
+        {"name": "owner", "type": "User", "required": true},
+        {"name": "roster", "type": "Player[]", "required": true},
+        {"name": "record", "type": "TeamRecord", "required": true}
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "name": "Google Gemini AI",
+      "type": "ai",
+      "description": "AI-powered predictions and content generation",
+      "configKey": "VITE_GEMINI_API_KEY",
+      "rateLimit": "60 requests/minute",
+      "critical": true
+    },
+    {
+      "name": "Sports.io API",
+      "type": "data",
+      "description": "Real-time NFL data and statistics",
+      "configKey": "VITE_SPORTS_IO_API_KEY",
+      "rateLimit": "1000 requests/month",
+      "critical": true
+    },
+    {
+      "name": "Stripe",
+      "type": "payment",
+      "description": "Payment processing",
+      "configKey": "STRIPE_SECRET_KEY",
+      "rateLimit": "100 requests/second",
+      "critical": false
+    },
+    {
+      "name": "Neon Database",
+      "type": "database",
+      "description": "PostgreSQL hosting",
+      "configKey": "DATABASE_URL",
+      "rateLimit": "1000 connections",
+      "critical": true
+    },
+    {
+      "name": "Netlify",
+      "type": "hosting",
+      "description": "Frontend hosting and deployment",
+      "configKey": "NETLIFY_AUTH_TOKEN",
+      "rateLimit": "500 builds/month",
+      "critical": true
+    }
+  ],
+  "environment": [
+    {
+      "key": "DATABASE_URL",
+      "description": "PostgreSQL connection string",
+      "required": true,
+      "example": "postgresql://user:pass@host/db"
+    },
+    {
+      "key": "VITE_GEMINI_API_KEY",
+      "description": "Google Gemini AI API key",
+      "required": true,
+      "example": "AIzaSyD-xxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "key": "VITE_SPORTS_IO_API_KEY",
+      "description": "Sports.io API key for NFL data",
+      "required": true,
+      "example": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    {
+      "key": "JWT_SECRET",
+      "description": "JWT token signing secret",
+      "required": true,
+      "example": "64-character-hex-string"
+    },
+    {
+      "key": "NODE_ENV",
+      "description": "Application environment",
+      "required": true,
+      "example": "production"
+    },
+    {
+      "key": "PORT",
+      "description": "Server port",
+      "required": false,
+      "example": "3001"
+    }
+  ],
+  "dependencies": {
+    "production": {
+      "react": "^19.1.0",
+      "typescript": "^5.0.0",
+      "express": "^4.21.2",
+      "socket.io-client": "^4.8.1",
+      "framer-motion": "^12.23.3",
+      "chart.js": "^4.5.0",
+      "axios": "^1.11.0",
+      "stripe": "^18.4.0",
+      "jsonwebtoken": "^9.0.2"
+    },
+    "development": {
+      "vite": "^7.0.6",
+      "jest": "^30.0.5",
+      "typescript": "^5.0.0",
+      "@testing-library/react": "^16.3.0",
+      "eslint": "^8.57.0",
+      "prettier": "^3.2.5"
+    }
+  },
+  "performance": {
+    "bundleSize": "2.1MB",
+    "loadTime": "< 3 seconds",
+    "cacheStrategy": "Service Worker + CDN",
+    "imageOptimization": "WebP + Lazy Loading",
+    "codesplitting": "Route-based + Component-based"
+  },
+  "security": {
+    "authentication": ["JWT", "OAuth", "MFA"],
+    "dataProtection": ["Encryption at rest", "HTTPS", "Input sanitization"],
+    "accessControl": ["RBAC", "Resource-based permissions"],
+    "vulnerabilityProtection": ["CSRF tokens", "Rate limiting", "SQL injection prevention"]
+  }
+}

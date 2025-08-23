@@ -1,0 +1,314 @@
+/**
+ * Mobile Touch Targets Fix
+ * Ensures all interactive elements meet 44px minimum touch target requirements
+ */
+
+/* =====================================
+   SECONDARY BUTTONS - Fix 40px height to 44px
+   ===================================== */
+
+.btn-secondary,
+.secondary-button,
+button.secondary-button,
+button[class*="secondary"] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 16px !important;
+}
+
+/* For inline secondary buttons that need more width */
+.btn-secondary:not(.icon-only),
+.secondary-button:not(.icon-only) {
+  min-width: 100px !important;
+}
+
+/* =====================================
+   ICON BUTTONS - Fix 32px to 44px
+   ===================================== */
+
+.icon-button,
+.btn-icon,
+button.icon-button,
+button[class*="icon"],
+.mobile-touch-target[aria-label] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Specific icon button selectors */
+button[aria-label*="Close"],
+button[aria-label*="Remove"],
+button[aria-label*="Cancel"],
+button[aria-label*="Add"],
+button[aria-label*="Edit"],
+button[aria-label*="Delete"] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px !important;
+}
+
+/* Icon buttons with specific class patterns */
+.p-3.rounded-full,
+.p-2.rounded-full {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px !important;
+}
+
+/* =====================================
+   FORM INPUTS - Fix 36px height to 44px
+   ===================================== */
+
+input,
+textarea,
+select,
+.form-input,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"] {
+  min-height: 44px !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important; /* Prevents zoom on iOS */
+}
+
+/* Specific form input patterns */
+input.form-input,
+.form-input,
+.bg-slate-800.border-slate-600 {
+  min-height: 44px !important;
+  padding: 12px 16px !important;
+}
+
+/* Text areas need more height but same padding */
+textarea,
+textarea.form-input {
+  min-height: 88px !important; /* 2x minimum for multi-line */
+  padding: 12px 16px !important;
+  line-height: 1.5 !important;
+}
+
+/* Select dropdowns */
+select,
+select.form-input {
+  min-height: 44px !important;
+  padding: 10px 16px !important; /* Less top/bottom for arrow space */
+}
+
+/* =====================================
+   FORM SUBMIT BUTTONS - Fix small submit buttons
+   ===================================== */
+
+input[type="submit"],
+button[type="submit"],
+.submit-button,
+button[class*="submit"] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 24px !important;
+  font-size: 16px !important;
+}
+
+/* Common submit button patterns */
+.bg-cyan-500,
+.bg-green-500,
+.bg-blue-500,
+button[class*="bg-cyan"],
+button[class*="bg-green"],
+button[class*="bg-blue"] {
+  min-height: 44px !important;
+  padding: 12px 24px !important;
+}
+
+/* Specific submit button text patterns - use data attributes or classes instead */
+button[data-action="submit"],
+button[data-type="submit"],
+.submit-btn,
+.post-btn,
+.save-btn,
+.confirm-btn {
+  min-height: 44px !important;
+  padding: 12px 24px !important;
+}
+
+/* =====================================
+   CHECKBOX AND RADIO INPUTS - Fix small inputs
+   ===================================== */
+
+input[type="checkbox"],
+input[type="radio"] {
+  min-height: 20px !important;
+  min-width: 20px !important;
+  transform: scale(1.5) !important;
+  margin: 8px !important;
+}
+
+/* Checkbox/Radio labels need touch targets too */
+label:has(input[type="checkbox"]),
+label:has(input[type="radio"]),
+.checkbox-label,
+.radio-label {
+  min-height: 44px !important;
+  padding: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+}
+
+/* Custom checkbox/radio containers */
+.form-check,
+.checkbox-container,
+.radio-container {
+  min-height: 44px !important;
+  padding: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* =====================================
+   MOBILE-SPECIFIC TOUCH TARGET HELPERS
+   ===================================== */
+
+/* Mobile touch target class for existing elements */
+.mobile-touch-target {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mobile-touch-target:not(.icon-only) {
+  padding: 12px 16px !important;
+}
+
+.mobile-touch-target.icon-only {
+  padding: 10px !important;
+}
+
+/* =====================================
+   RESPONSIVE TOUCH TARGET ADJUSTMENTS
+   ===================================== */
+
+/* Mobile devices (< 768px) */
+@media (max-width: 767px) {
+  /* Increase touch targets even more on mobile */
+  button,
+  input,
+  select,
+  textarea,
+  .btn,
+  .form-control {
+    min-height: 48px !important;
+  }
+  
+  /* Icon buttons get slightly larger on mobile */
+  .icon-button,
+  .btn-icon,
+  button[aria-label] {
+    min-height: 48px !important;
+    min-width: 48px !important;
+  }
+  
+  /* Form inputs more padding on mobile */
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* Small mobile devices (< 480px) */
+@media (max-width: 479px) {
+  /* Even more generous touch targets on small screens */
+  .mobile-touch-target,
+  button,
+  .btn {
+    min-height: 52px !important;
+  }
+  
+  /* Increase spacing between touch targets */
+  button + button,
+  .btn + .btn,
+  .mobile-touch-target + .mobile-touch-target {
+    margin-left: 8px !important;
+  }
+}
+
+/* =====================================
+   ACCESSIBILITY IMPROVEMENTS
+   ===================================== */
+
+/* Focus indicators for better accessibility */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+.mobile-touch-target:focus {
+  outline: 2px solid #0066cc !important;
+  outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  button,
+  input,
+  select,
+  textarea,
+  .mobile-touch-target {
+    border-width: 2px !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  button,
+  .mobile-touch-target {
+    transition: none !important;
+  }
+}
+
+/* =====================================
+   UTILITY CLASSES FOR MANUAL FIXES
+   ===================================== */
+
+/* Classes that can be added to components that need touch target fixes */
+.touch-target-44 {
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
+.touch-target-48 {
+  min-height: 48px !important;
+  min-width: 48px !important;
+}
+
+.touch-target-52 {
+  min-height: 52px !important;
+  min-width: 52px !important;
+}
+
+/* Touch target for elements that need more width */
+.touch-target-wide {
+  min-height: 44px !important;
+  min-width: 100px !important;
+  padding: 12px 20px !important;
+}
+
+/* Touch target for icon-only elements */
+.touch-target-icon {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
