@@ -1,0 +1,4 @@
+import{j as e}from"./index-COBmtdYu.js";const s={sm:"w-6 h-6",md:"w-10 h-10",lg:"w-16 h-16"},i=({size:r="md",text:n})=>e.jsxDEV("div",{className:"flex flex-col items-center justify-center gap-4 py-8",children:[e.jsxDEV("div",{className:`
+                ${s[r]}
+                border-4 border-[var(--panel-border)] border-t-cyan-400 rounded-full animate-spin
+            `},void 0,!1,{fileName:"C:/Users/damat/_REPOS/Astral Draft/components/ui/LoadingSpinner.tsx",lineNumber:18,columnNumber:13},void 0),n&&e.jsxDEV("p",{className:"text-sm text-[var(--text-secondary)]",children:n},void 0,!1,{fileName:"C:/Users/damat/_REPOS/Astral Draft/components/ui/LoadingSpinner.tsx",lineNumber:22,columnNumber:22},void 0)]},void 0,!0,{fileName:"C:/Users/damat/_REPOS/Astral Draft/components/ui/LoadingSpinner.tsx",lineNumber:17,columnNumber:9},void 0);export{i as L};

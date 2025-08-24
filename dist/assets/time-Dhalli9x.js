@@ -1,0 +1,1 @@
+function t(e){const o=Math.round((Date.now()-e)/1e3);return o<60?`${o}s ago`:o<3600?`${Math.floor(o/60)}m ago`:o<86400?`${Math.floor(o/3600)}h ago`:o<604800?`${Math.floor(o/86400)}d ago`:o<2592e3?`${Math.floor(o/604800)}w ago`:o<31536e3?`${Math.floor(o/2592e3)}mo ago`:`${Math.floor(o/31536e3)}y ago`}export{t as f};

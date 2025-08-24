@@ -79,30 +79,14 @@ export default defineConfig(({ mode }) => {
         chunkSizeWarningLimit: 1500,
         rollupOptions: {
           output: {
-            // Simplified chunking strategy to prevent React initialization issues
-            manualChunks: (id: string) => {
-              // Only split vendor chunks - keep React ecosystem completely together
-              if (id.includes('node_modules')) {
-                // CRITICAL: React, ReactDOM, and all React-related packages must be in the same chunk
-                // This prevents the "React.Children is undefined" error in production
-                if (id.includes('react') || id.includes('scheduler')) {
-                  return 'react-vendor';
-                }
-                
-                // Large standalone libraries can be split
-                if (id.includes('@google/genai')) return 'vendor-ai';
-                if (id.includes('chart.js') || id.includes('recharts') || id.includes('d3')) return 'vendor-charts';
-                if (id.includes('@dnd-kit')) return 'vendor-dnd';
-                if (id.includes('lodash')) return 'vendor-lodash';
-                
-                // Everything else goes into a general vendor chunk
-                return 'vendor';
-              }
-              
-              // Don't split application code - let Vite handle it automatically
-              // This prevents issues with circular dependencies and initialization order
-              return undefined;
-            },
+            // Disable code splitting entirely to fix React context issues
+            manualChunks: undefined,
+            // Alternative: Put EVERYTHING in a single vendor chunk
+            // manualChunks: (id: string) => {
+            //   if (id.includes('node_modules')) {
+            //     return 'vendor';
+            //   }
+            // },
             // File naming strategy for caching
             entryFileNames: 'assets/[name]-[hash].js',
             chunkFileNames: 'assets/[name]-[hash].js',

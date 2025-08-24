@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Astral Draft Icons</title>
+</head>
+<body>
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <canvas id="canvas512" width="512" height="512"></canvas>
+    <br>
+    <a id="download192" download="icon-192.png">Download 192x192</a>
+    <br>
+    <a id="download512" download="icon-512.png">Download 512x512</a>
+    
+    <script>
+        function createIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            
+            // Dark background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#0a0a0a');
+            gradient.addColorStop(1, '#1a1a2e');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Draw a stylized "A" for Astral
+            ctx.strokeStyle = '#06b6d4';
+            ctx.lineWidth = size * 0.08;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            
+            // Draw the A shape
+            const centerX = size / 2;
+            const topY = size * 0.2;
+            const bottomY = size * 0.8;
+            const width = size * 0.4;
+            
+            ctx.beginPath();
+            // Left side of A
+            ctx.moveTo(centerX - width/2, bottomY);
+            ctx.lineTo(centerX, topY);
+            // Right side of A
+            ctx.lineTo(centerX + width/2, bottomY);
+            // Crossbar
+            ctx.moveTo(centerX - width/4, (topY + bottomY) / 2);
+            ctx.lineTo(centerX + width/4, (topY + bottomY) / 2);
+            ctx.stroke();
+            
+            // Add a subtle glow effect
+            ctx.shadowBlur = size * 0.05;
+            ctx.shadowColor = '#06b6d4';
+            ctx.stroke();
+            
+            // Add stars around the A
+            ctx.fillStyle = '#06b6d4';
+            ctx.shadowBlur = 0;
+            
+            function drawStar(x, y, radius) {
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    const angle = (i * 144 - 90) * Math.PI / 180;
+                    const innerAngle = ((i * 144 + 36) - 90) * Math.PI / 180;
+                    if (i === 0) {
+                        ctx.moveTo(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
+                    } else {
+                        ctx.lineTo(x + Math.cos(angle) * radius, y + Math.sin(angle) * radius);
+                    }
+                    ctx.lineTo(x + Math.cos(innerAngle) * radius * 0.4, y + Math.sin(innerAngle) * radius * 0.4);
+                }
+                ctx.closePath();
+                ctx.fill();
+            }
+            
+            // Draw small stars
+            drawStar(size * 0.15, size * 0.15, size * 0.03);
+            drawStar(size * 0.85, size * 0.15, size * 0.03);
+            drawStar(size * 0.15, size * 0.85, size * 0.03);
+            drawStar(size * 0.85, size * 0.85, size * 0.03);
+            
+            return canvas;
+        }
+        
+        // Generate icons
+        const canvas192 = document.getElementById('canvas192');
+        const canvas512 = document.getElementById('canvas512');
+        
+        createIcon(canvas192, 192);
+        createIcon(canvas512, 512);
+        
+        // Set download links
+        document.getElementById('download192').href = canvas192.toDataURL('image/png');
+        document.getElementById('download512').href = canvas512.toDataURL('image/png');
+        
+        // Auto-download function
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Auto-download both icons
+        setTimeout(() => {
+            console.log('Icons generated! Right-click and save the images as icon-192.png and icon-512.png in the public folder.');
+        }, 100);
+    </script>
+</body>
+</html>
